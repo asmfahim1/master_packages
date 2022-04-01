@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:master_package/screens/home_screen.dart';
 
 void main() {
@@ -9,12 +10,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+      theme: ThemeData().copyWith(
+          // primaryColor: Color(0xFF28706F),
+          scaffoldBackgroundColor: Color(0xFF28706F),
+          appBarTheme: AppBarTheme(backgroundColor: Colors.white)),
+      home: HomeScreen(),
     );
   }
 }

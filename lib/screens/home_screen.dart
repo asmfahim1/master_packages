@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:master_package/screens/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -6,29 +8,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Zero to Unicorn"),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.favorite_outline_outlined,
-                size: 20,
-              ))
-        ],
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(LoginScreen());
+                },
                 child: const Text(
                   "User",
                   style: TextStyle(fontSize: 30),
                 )),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(LoginScreen());
+              },
               child: const Text("Admin", style: TextStyle(fontSize: 30)),
             )
           ],
