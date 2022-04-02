@@ -14,9 +14,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
-          // primaryColor: Color(0xFF28706F),
-          scaffoldBackgroundColor: Color(0xFF28706F),
-          appBarTheme: AppBarTheme(backgroundColor: Colors.white)),
+        // primaryColor: Color(0xFF28706F),
+        scaffoldBackgroundColor: Color(0xFF28706F),
+        appBarTheme:
+            AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
+      ),
       home: HomeScreen(),
     );
   }
