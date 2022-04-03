@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
+import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
+import 'package:master_package/widgets/ReusableTextField.dart';
+import 'package:master_package/widgets/ReusableTitleText.dart';
 
 import '../../widgets/ReusableHeadlineText.dart';
 
@@ -30,48 +33,12 @@ class ResetConfirmPassScreen extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        Text(
-                          "Password",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Enter new password",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusablePTitle(title: "Password"),
+                        ReusableTextField(title: "Enter password"),
                         SizedBox(height: 20),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Confirm password",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusableTextField(title: "Confirm Password"),
                         SizedBox(height: 20),
-                        TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            height: 35,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                "Done",
-                                style:
-                                    TextStyle(fontSize: 20, color: Colors.blue),
-                              ),
-                            ),
-                          ),
-                        ),
+                        ReusableTextButtonL(title: "Done"),
                       ],
                     ),
                   ),

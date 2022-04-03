@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_package/widgets/ReusableTextField.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
@@ -39,16 +40,7 @@ class CreateAccountScreen extends StatelessWidget {
                           "Name",
                           style: TextStyle(fontSize: 20),
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Enter your email",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusableTextField(title: "Enter your username"),
                         SizedBox(
                           height: 20,
                         ),
@@ -56,16 +48,7 @@ class CreateAccountScreen extends StatelessWidget {
                           "Email",
                           style: TextStyle(fontSize: 20),
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Enter your email",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusableTextField(title: "Enter your email"),
                         SizedBox(
                           height: 20,
                         ),
@@ -73,29 +56,11 @@ class CreateAccountScreen extends StatelessWidget {
                           "Password",
                           style: TextStyle(fontSize: 20),
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Enter password",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusableTextField(title: "Enter password"),
                         SizedBox(
                           height: 20,
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                              hintText: "Confirm password",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                        ),
+                        ReusableTextField(title: "Confirm password"),
                         SizedBox(
                           height: 20,
                         ),

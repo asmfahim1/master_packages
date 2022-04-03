@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_paa_screen.dart';
+import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
+import '../../widgets/ReusableTextField.dart';
+import '../../widgets/ReusableTitleText.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({
@@ -46,44 +49,16 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "Email",
-                        style: TextStyle(fontSize: 20),
+                      ReusablePTitle(
+                        title: "Email",
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your email",
-                            hintStyle: TextStyle(color: Colors.grey),
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            )),
-                      ),
+                      ReusableTextField(title: "Enter your email"),
                       SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "Password",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your password",
-                            hintStyle: TextStyle(color: Colors.grey),
-                            fillColor: Colors.white,
-                            filled: true,
-                            suffixIcon: Padding(
-                              padding: EdgeInsets.all(0.8),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.remove_red_eye),
-                              ),
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            )),
-                        obscureText: true,
+                      ReusablePTitle(title: "Password"),
+                      ReusableTextField(
+                        title: "Enter your password",
                       ),
                       Row(
                         children: [
@@ -93,22 +68,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Container(
-                          height: 35,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
-                            child: Text(
-                              "Login",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.black),
-                            ),
-                          ),
-                        ),
-                      ),
+                      ReusableTextButtonL(title: "Login"),
                       SizedBox(
                         height: 10,
                       ),

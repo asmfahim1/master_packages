@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
+import 'package:master_package/widgets/ReusableTextField.dart';
+import 'package:master_package/widgets/ReusableTitleText.dart';
 
 import '../../widgets/ReusableHeadlineText.dart';
+import '../../widgets/ReusableTextButtonLCR.dart';
 
 class ResetPassScreen extends StatelessWidget {
   const ResetPassScreen({Key? key}) : super(key: key);
@@ -36,38 +39,16 @@ class ResetPassScreen extends StatelessWidget {
                           SizedBox(
                             height: 40,
                           ),
-                          Text(
-                            "Email",
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                                hintText: "Enter your email",
-                                hintStyle: TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                )),
+                          ReusablePTitle(title: "Email"),
+                          SizedBox(
+                            height: 50,
+                            child: ReusableTextField(title: "Enter your email"),
                           ),
                           SizedBox(
                             height: 40,
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Container(
-                              height: 35,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                child: Text(
-                                  "Send Email",
-                                  style: TextStyle(
-                                      fontSize: 20, color: Colors.black),
-                                ),
-                              ),
-                            ),
+                          ReusableTextButtonL(
+                            title: "Send email",
                           ),
                         ],
                       ),
