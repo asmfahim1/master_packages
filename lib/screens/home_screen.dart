@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 Get.to(LoginScreen());
               },
               child: const Text("Admin", style: TextStyle(fontSize: 30)),
-            )
+            ),
           ],
         ),
       ),
