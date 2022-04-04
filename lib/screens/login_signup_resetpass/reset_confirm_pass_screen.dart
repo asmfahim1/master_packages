@@ -7,7 +7,10 @@ import 'package:master_package/widgets/ReusableTitleText.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 
 class ResetConfirmPassScreen extends StatelessWidget {
-  const ResetConfirmPassScreen({Key? key}) : super(key: key);
+  ResetConfirmPassScreen({Key? key}) : super(key: key);
+
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +37,26 @@ class ResetConfirmPassScreen extends StatelessWidget {
                           height: 40,
                         ),
                         ReusablePTitle(title: "Password"),
-                        ReusableTextField(title: "Enter password"),
+                        ReusableTextField(
+                          "Enter password",
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.remove_red_eye_outlined),
+                          ),
+                          passwordController,
+                        ),
                         SizedBox(height: 20),
-                        ReusableTextField(title: "Confirm Password"),
+                        ReusableTextField.withoutSuffixIcon(
+                          "Confirm Password",
+                          confPasswordController,
+                        ),
                         SizedBox(height: 20),
-                        ReusableTextButtonL(title: "Done"),
+                        ReusableTextButtonL(
+                          title: "Done",
+                          onPressed: () {
+                            debugPrint("Done pressed");
+                          },
+                        ),
                       ],
                     ),
                   ),

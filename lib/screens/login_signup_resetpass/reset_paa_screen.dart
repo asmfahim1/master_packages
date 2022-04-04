@@ -7,7 +7,9 @@ import '../../widgets/ReusableHeadlineText.dart';
 import '../../widgets/ReusableTextButtonLCR.dart';
 
 class ResetPassScreen extends StatelessWidget {
-  const ResetPassScreen({Key? key}) : super(key: key);
+  ResetPassScreen({Key? key}) : super(key: key);
+
+  TextEditingController resetController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +44,19 @@ class ResetPassScreen extends StatelessWidget {
                           ReusablePTitle(title: "Email"),
                           SizedBox(
                             height: 50,
-                            child: ReusableTextField(title: "Enter your email"),
+                            child: ReusableTextField.withoutSuffixIcon(
+                              "Enter your email",
+                              resetController,
+                            ),
                           ),
                           SizedBox(
                             height: 40,
                           ),
                           ReusableTextButtonL(
                             title: "Send email",
+                            onPressed: () {
+                              debugPrint("Send button pressed");
+                            },
                           ),
                         ],
                       ),

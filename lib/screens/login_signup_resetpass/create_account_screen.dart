@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 
 class CreateAccountScreen extends StatelessWidget {
-  const CreateAccountScreen({Key? key}) : super(key: key);
+  CreateAccountScreen({Key? key}) : super(key: key);
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,10 @@ class CreateAccountScreen extends StatelessWidget {
                           "Name",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField(title: "Enter your username"),
+                        ReusableTextField.withoutSuffixIcon(
+                          "Enter your username",
+                          userNameController,
+                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -48,7 +56,10 @@ class CreateAccountScreen extends StatelessWidget {
                           "Email",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField(title: "Enter your email"),
+                        ReusableTextField.withoutSuffixIcon(
+                          "Enter your email",
+                          emailController,
+                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -56,30 +67,29 @@ class CreateAccountScreen extends StatelessWidget {
                           "Password",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField(title: "Enter password"),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        ReusableTextField(title: "Confirm password"),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            height: 35,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                "Sign up",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.black),
-                              ),
-                            ),
+                        ReusableTextField(
+                          "Enter password",
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.remove_red_eye_outlined),
                           ),
+                          passwordController,
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ReusableTextField.withoutSuffixIcon(
+                          "Confirm password",
+                          confPasswordController,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ReusableTextButtonL(
+                            title: "Sign up",
+                            onPressed: () {
+                              debugPrint("signup button pressed");
+                            })
                       ],
                     ),
                   ),

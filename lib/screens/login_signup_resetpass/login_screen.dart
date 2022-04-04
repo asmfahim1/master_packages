@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_paa_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
@@ -15,6 +16,9 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({
     Key? key,
   }) : super(key: key);
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   final GlobalKey<FormState> _fromKey = GlobalKey();
 
@@ -52,14 +56,19 @@ class LoginScreen extends StatelessWidget {
                       ReusablePTitle(
                         title: "Email",
                       ),
-                      ReusableTextField(title: "Enter your email"),
+                      ReusableTextField.withoutSuffixIcon(
+                          "Enter your email", emailController),
                       SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
-                        title: "Enter your password",
-                      ),
+                          "Enter password",
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.remove_red_eye_outlined),
+                          ),
+                          passwordController),
                       Row(
                         children: [
                           Checkbox(value: newValue, onChanged: (newValue) {}),
@@ -68,7 +77,12 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ReusableTextButtonL(title: "Login"),
+                      ReusableTextButtonL(
+                        title: "Login",
+                        onPressed: () {
+                          Get.to(() => DashboardScreen());
+                        },
+                      ),
                       SizedBox(
                         height: 10,
                       ),
