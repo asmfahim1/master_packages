@@ -9,7 +9,7 @@ import '../../widgets/ReusableTextButtonLCR.dart';
 class ResetPassScreen extends StatelessWidget {
   ResetPassScreen({Key? key}) : super(key: key);
 
-  TextEditingController resetController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +44,9 @@ class ResetPassScreen extends StatelessWidget {
                           ReusablePTitle(title: "Email"),
                           SizedBox(
                             height: 50,
-                            child: ReusableTextField.withoutSuffixIcon(
-                              "Enter your email",
-                              resetController,
-                            ),
+                            child: ReusableTextField(
+                                title: "Enter your email",
+                                textEditingController: emailController),
                           ),
                           SizedBox(
                             height: 40,

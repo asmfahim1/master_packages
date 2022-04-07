@@ -45,10 +45,9 @@ class CreateAccountScreen extends StatelessWidget {
                           "Name",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your username",
-                          userNameController,
-                        ),
+                        ReusableTextField(
+                            title: "Enter your username",
+                            textEditingController: userNameController),
                         SizedBox(
                           height: 20,
                         ),
@@ -56,10 +55,9 @@ class CreateAccountScreen extends StatelessWidget {
                           "Email",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your email",
-                          emailController,
-                        ),
+                        ReusableTextField(
+                            title: "Enter your email",
+                            textEditingController: emailController),
                         SizedBox(
                           height: 20,
                         ),
@@ -68,20 +66,18 @@ class CreateAccountScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                         ReusableTextField(
-                          "Enter password",
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.remove_red_eye_outlined),
-                          ),
-                          passwordController,
-                        ),
+                            title: "Enter password",
+                            suffixIcon: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.remove_red_eye_outlined),
+                            ),
+                            textEditingController: passwordController),
                         SizedBox(
                           height: 20,
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Confirm password",
-                          confPasswordController,
-                        ),
+                        ReusableTextField(
+                            title: "  Confirm password",
+                            textEditingController: confPasswordController),
                         SizedBox(
                           height: 20,
                         ),
