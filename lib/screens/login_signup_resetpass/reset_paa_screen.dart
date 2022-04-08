@@ -53,6 +53,7 @@ class ResetPassScreen extends StatelessWidget {
                           ),
                           ReusableTextButtonL(
                             title: "Send email",
+                            color: Colors.white,
                             onPressed: () {
                               debugPrint("Send button pressed");
                             },

@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class ReusableTextField extends StatelessWidget {
   String title;
+  String? labelText;
   Widget? suffixIcon;
+  Widget? prefixIcon;
   TextEditingController textEditingController = TextEditingController();
 
   ReusableTextField(
       {Key? key,
       required this.title,
       this.suffixIcon,
-      required this.textEditingController})
+      this.prefixIcon,
+      required this.textEditingController,
+      this.labelText})
       : super(key: key);
 
   @override
@@ -21,9 +25,13 @@ class ReusableTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: title,
           hintStyle: TextStyle(color: Colors.grey),
+          labelText: labelText,
+          labelStyle:
+              TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           fillColor: Colors.white,
           filled: true,
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),

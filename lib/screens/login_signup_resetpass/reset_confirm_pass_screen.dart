@@ -51,6 +51,7 @@ class ResetConfirmPassScreen extends StatelessWidget {
                         SizedBox(height: 20),
                         ReusableTextButtonL(
                           title: "Done",
+                          color: Colors.white,
                           onPressed: () {
                             debugPrint("Done pressed");
                           },
