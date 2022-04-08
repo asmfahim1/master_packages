@@ -6,9 +6,11 @@ class ReusableTextField extends StatelessWidget {
   TextEditingController textEditingController = TextEditingController();
 
   ReusableTextField(
-      {required this.title,
+      {Key? key,
+      required this.title,
       this.suffixIcon,
-      required this.textEditingController});
+      required this.textEditingController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

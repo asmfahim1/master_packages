@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
+import 'login_screen.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   CreateAccountScreen({Key? key}) : super(key: key);
@@ -85,6 +87,7 @@ class CreateAccountScreen extends StatelessWidget {
                             title: "Sign up",
                             onPressed: () {
                               debugPrint("signup button pressed");
+                              Get.to(() => LoginScreen());
                             })
                       ],
                     ),
