@@ -1,8 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
+import 'package:master_package/screens/home_screen.dart';
+import 'package:master_package/screens/profile_screen.dart';
+import 'package:master_package/screens/search_screen.dart';
+
+import 'cart_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   DashboardScreen({Key? key}) : super(key: key);
@@ -35,6 +38,12 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   TextEditingController dashboardController = TextEditingController();
   int _selectedIndex = 0;
+  final screens = [
+    HomeScreen(),
+    SearchScreen(),
+    CartScreen(),
+    ProfileScreen(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -46,210 +55,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Get.to(() => LoginScreen());
-                },
-                icon: Icon(
-                  Icons.logout,
-                  size: 25,
-                ))
-          ],
-        ),
-        body: Column(
-          children: [
-            Container(
-              height: 300,
-              // decoration: BoxDecoration(
-              //   color: Colors.white,
-              //   borderRadius: BorderRadius.only(
-              //     bottomLeft: Radius.circular(40.0),
-              //     bottomRight: Radius.circular(40.0),
-              //   ),
-              // ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 150),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search for medicines, doctors, hospitals",
-                      filled: true,
-                      hoverColor: Color(0xFF28706F),
-                      fillColor: Colors.white,
-                      prefixIcon: Icon(Icons.search_outlined),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40.0),
-                    topRight: Radius.circular(40.0),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 2, right: 2, top: 25, bottom: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Expanded(
-                                flex: 0,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Expanded(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF28706F),
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Icon(
-                                            Icons.local_pharmacy,
-                                            size: 60,
-                                          ),
-                                          Text(
-                                            "Pharmacy",
-                                            style: TextStyle(
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text("Look for nearby pharmacy"),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 0,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Expanded(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF28706F),
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Icon(
-                                            Icons.local_pharmacy,
-                                            size: 60,
-                                          ),
-                                          Text(
-                                            "Pharmacy",
-                                            style: TextStyle(
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text("Look for nearby pharmacy"),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      // Expanded(
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //     children: [
-                      //       Expanded(
-                      //         flex: 0,
-                      //         child: TextButton(
-                      //           onPressed: () {},
-                      //           child: Expanded(
-                      //             child: Container(
-                      //               decoration: BoxDecoration(
-                      //                 color: Color(0xFF28706F),
-                      //                 borderRadius: BorderRadius.circular(20.0),
-                      //               ),
-                      //               child: Column(
-                      //                 children: [
-                      //                   Icon(
-                      //                     Icons.local_pharmacy,
-                      //                     size: 60,
-                      //                   ),
-                      //                   Text(
-                      //                     "Pharmacy",
-                      //                     style: TextStyle(
-                      //                         fontSize: 30,
-                      //                         fontWeight: FontWeight.bold),
-                      //                   ),
-                      //                   Text("Look for nearby pharmacy"),
-                      //                 ],
-                      //               ),
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ),
-                      //       Expanded(
-                      //         flex: 0,
-                      //         child: TextButton(
-                      //           onPressed: () {},
-                      //           child: Expanded(
-                      //             child: Container(
-                      //               decoration: BoxDecoration(
-                      //                 color: Color(0xFF28706F),
-                      //                 borderRadius: BorderRadius.circular(20.0),
-                      //               ),
-                      //               child: Column(
-                      //                 children: [
-                      //                   Icon(
-                      //                     Icons.local_pharmacy,
-                      //                     size: 60,
-                      //                   ),
-                      //                   Text(
-                      //                     "Pharmacy",
-                      //                     style: TextStyle(
-                      //                         fontSize: 30,
-                      //                         fontWeight: FontWeight.bold),
-                      //                   ),
-                      //                   Text("Look for nearby pharmacy"),
-                      //                 ],
-                      //               ),
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+        body: screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           elevation: 0,
           items: const <BottomNavigationBarItem>[
@@ -263,7 +69,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.business,
+                Icons.search_outlined,
                 color: Color(0xFF28706F),
               ),
               label: 'Business',
@@ -271,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.school,
+                Icons.add_shopping_cart,
                 color: Color(0xFF28706F),
               ),
               label: 'School',
@@ -279,7 +85,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.settings,
+                Icons.person_outline,
                 color: Color(0xFF28706F),
               ),
               label: 'Settings',

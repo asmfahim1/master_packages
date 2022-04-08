@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
@@ -17,17 +19,33 @@ class _UserScreenState extends State<UserScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              height: 30,
-              width: 100,
-              color: Colors.deepOrange,
-              child: Text("User Data1"),
+            TextButton(
+              onPressed: () {
+                Get.to(() => LoginScreen());
+              },
+              child: Container(
+                height: 30,
+                width: 100,
+                color: Colors.white,
+                child: Text(
+                  "USER",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
             ),
-            Container(
-              height: 30,
-              width: 100,
-              color: Colors.lightBlue,
-              child: Text("User Data1"),
+            TextButton(
+              onPressed: () {
+                Get.to(() => LoginScreen());
+              },
+              child: Container(
+                height: 30,
+                width: 100,
+                color: Colors.white,
+                child: Text(
+                  "ADMIN",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
             ),
           ],
         ),
