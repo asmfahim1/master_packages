@@ -27,7 +27,7 @@ class DashboardTextButton extends StatelessWidget {
             children: [
               Icon(
                 iconData,
-                size: 50,
+                size: 48,
                 color: Colors.white,
               ),
               Text(

@@ -36,7 +36,7 @@ class ReusableTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
         ),
-        obscureText: true,
+        obscureText: false,
       ),
     );
   }
