@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Get.to(() => LoginScreen());
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout,
                 size: 25,
               ))
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                     height: 5,
                   ),
                   const Text(
-                    "Md. Farhan Nasif",
+                    "Md. Ahsanul Haque Mridha",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                   const SizedBox(
@@ -73,56 +73,57 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 2, right: 2, top: 25, bottom: 0),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Row(
-                          children: [
-                            DashboardTextButton(
-                              onPress: () {
-                                debugPrint("pharmacy pressed");
-                              },
-                              iconData: Icons.local_pharmacy_outlined,
-                              headlineText: "Pharmacy",
-                              normalText: " Look for nearby pharmacies ",
-                            ),
-                            DashboardTextButton(
-                              onPress: () {
-                                debugPrint("hospitals pressed");
-                              },
-                              iconData: Icons.local_hospital_outlined,
-                              headlineText: "Hospitals",
-                              normalText: "   Look for nearby hospitals   ",
-                            ),
-                          ],
-                        ),
+                padding: const EdgeInsets.only(
+                    left: 2, right: 2, top: 25, bottom: 0),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("drugs pressed");
+                            },
+                            iconData: Icons.shop_two_sharp,
+                            headlineText: "Drugs",
+                            normalText: "     Look for drugs by types     ",
+                          ),
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("doctors pressed");
+                            },
+                            iconData: Icons.person_outline,
+                            headlineText: "Doctors",
+                            normalText: "       Look for best doctors       ",
+                          ),
+                        ],
                       ),
-                      Expanded(
-                        child: Row(
-                          children: [
-                            DashboardTextButton(
-                              onPress: () {
-                                debugPrint("doctors pressed");
-                              },
-                              iconData: Icons.person_outline,
-                              headlineText: "Doctors",
-                              normalText: "       Look for best doctors       ",
-                            ),
-                            DashboardTextButton(
-                              onPress: () {
-                                debugPrint("drugs pressed");
-                              },
-                              iconData: Icons.shop_two_sharp,
-                              headlineText: "Drugs",
-                              normalText: "     Look for drugs by types     ",
-                            ),
-                          ],
-                        ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("pharmacy pressed");
+                            },
+                            iconData: Icons.local_pharmacy_outlined,
+                            headlineText: "Pharmacy",
+                            normalText: " Look for nearby pharmacies ",
+                          ),
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("hospitals pressed");
+                            },
+                            iconData: Icons.local_hospital_outlined,
+                            headlineText: "Hospitals",
+                            normalText: "   Look for nearby hospitals   ",
+                          ),
+                        ],
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
             ),
           )
         ],

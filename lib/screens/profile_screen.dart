@@ -15,6 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           labelText: "Contact",
                           prefixIcon: Icon(Icons.phone),
                           suffixIcon: Icon(Icons.edit),
-                          textEditingController: nameController,
+                          textEditingController: phoneController,
                         ),
                         SizedBox(
                           height: 20,
@@ -121,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             labelText: "Email",
                             prefixIcon: Icon(Icons.email_outlined),
                             suffixIcon: Icon(Icons.edit),
-                            textEditingController: nameController),
+                            textEditingController: emailController),
                         SizedBox(
                           height: 20,
                         ),
@@ -130,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             labelText: "Address",
                             prefixIcon: Icon(Icons.home_outlined),
                             suffixIcon: Icon(Icons.edit),
-                            textEditingController: nameController),
+                            textEditingController: addressController),
                         SizedBox(
                           height: 50,
                         ),
