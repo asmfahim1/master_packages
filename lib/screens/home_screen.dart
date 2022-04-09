@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:master_package/screens/drugs/drus_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
 
-import '../constants.dart';
+import '../constants/constants.dart';
 import '../widgets/ReusableHeadlineText.dart';
 import '../widgets/dashboard_textbutton.dart';
 
@@ -83,6 +84,7 @@ class HomeScreen extends StatelessWidget {
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("drugs pressed");
+                              Get.to(() => const DrugMainScreen());
                             },
                             iconData: Icons.shop_two_sharp,
                             headlineText: "Drugs",

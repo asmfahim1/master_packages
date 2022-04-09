@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
 import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_paa_screen.dart';
@@ -13,10 +12,6 @@ import '../../widgets/ReusableTextField.dart';
 import '../../widgets/ReusableTitleText.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({
-    Key? key,
-  }) : super(key: key);
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -24,16 +19,18 @@ class LoginScreen extends StatelessWidget {
 
   static const bool newValue = true;
 
+  LoginScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           body: Column(
         children: [
-          CircularContainer(),
+          const CircularContainer(),
           Expanded(
             child: Container(
-              color: Color(0xFF28706F),
+              color: kBackColor,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -45,27 +42,29 @@ class LoginScreen extends StatelessWidget {
                           headLineName: "WELCOME",
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                           "Sign in with your data that you entered during registration to continue"),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(
                         title: "Email",
                       ),
                       ReusableTextField(
+                          prefixIcon: Icon(Icons.email_outlined),
                           title: "Enter your email",
                           textEditingController: emailController),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
+                        prefixIcon: Icon(Icons.star_border_outlined),
                         title: "Enter password",
-                        suffixIcon: Padding(
+                        suffixIcon: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Icon(Icons.remove_red_eye_outlined),
                         ),
@@ -74,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         children: [
                           Checkbox(value: newValue, onChanged: (newValue) {}),
-                          Text(
+                          const Text(
                             "Keep me logged in",
                           ),
                         ],
@@ -86,12 +85,12 @@ class LoginScreen extends StatelessWidget {
                           Get.to(() => DashboardScreen());
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Center(
                         child: GestureDetector(
-                          child: Text(
+                          child: const Text(
                             "Forgot Password ?",
                             style: TextStyle(color: Colors.blue, fontSize: 18),
                           ),
@@ -100,15 +99,15 @@ class LoginScreen extends StatelessWidget {
                           },
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Don't have an account? "),
+                          const Text("Don't have an account? "),
                           GestureDetector(
-                            child: Text(
+                            child: const Text(
                               "Sign up here",
                               style:
                                   TextStyle(color: Colors.blue, fontSize: 18),

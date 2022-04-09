@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
 import 'package:master_package/screens/user_scren.dart';
 
 void main() {
@@ -15,9 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
         // primaryColor: Color(0xFF28706F),
-        scaffoldBackgroundColor: Color(0xFF28706F),
-        appBarTheme:
-            AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
+        scaffoldBackgroundColor: kBackColor,
+        appBarTheme: AppBarTheme(backgroundColor: kBackColor, elevation: 0),
       ),
       home: UserScreen(),
     );
