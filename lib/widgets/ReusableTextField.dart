@@ -5,6 +5,7 @@ class ReusableTextField extends StatelessWidget {
   String? labelText;
   Widget? suffixIcon;
   Widget? prefixIcon;
+  bool? obscureText;
   TextEditingController textEditingController = TextEditingController();
 
   ReusableTextField(
@@ -13,7 +14,8 @@ class ReusableTextField extends StatelessWidget {
       this.suffixIcon,
       this.prefixIcon,
       required this.textEditingController,
-      this.labelText})
+      this.labelText,
+      this.obscureText})
       : super(key: key);
 
   @override
@@ -36,7 +38,8 @@ class ReusableTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
         ),
-        obscureText: false,
+        obscureText: obscureText!,
+        obscuringCharacter: '#',
       ),
     );
   }

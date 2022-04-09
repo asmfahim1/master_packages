@@ -54,6 +54,7 @@ class LoginScreen extends StatelessWidget {
                         title: "Email",
                       ),
                       ReusableTextField(
+                          obscureText: false,
                           prefixIcon: Icon(Icons.email_outlined),
                           title: "Enter your email",
                           textEditingController: emailController),
@@ -63,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
                         prefixIcon: Icon(Icons.star_border_outlined),
+                        obscureText: true,
                         title: "Enter password",
                         suffixIcon: const Padding(
                           padding: EdgeInsets.all(8.0),
@@ -82,6 +84,8 @@ class LoginScreen extends StatelessWidget {
                         title: "Login",
                         color: Colors.white,
                         onPressed: () {
+                          emailController.clear();
+                          passwordController.clear();
                           Get.to(() => DashboardScreen());
                         },
                       ),

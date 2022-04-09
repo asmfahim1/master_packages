@@ -14,8 +14,7 @@ class DrugByIndicationScreen extends StatelessWidget {
             itemCount: DrugsByIndication.drugs.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
-                  color: Colors.white70,
-                  child: DrugByGenericCard(index: index));
+                  color: Colors.white, child: DrugByGenericCard(index: index));
             }));
   }
 }
@@ -27,32 +26,30 @@ class DrugByGenericCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 26,
-              child: Center(
-                child: Text(
-                  DrugsByIndication.drugs[index].dImage,
-                  style: TextStyle(fontSize: 10),
-                ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 26,
+            child: Center(
+              child: Text(
+                DrugsByIndication.drugs[index].dImage,
+                style: TextStyle(fontSize: 10),
               ),
             ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-                child: Text(
-              DrugsByIndication.drugs[index].drugName,
-              style: TextStyle(fontSize: 17),
-            ))
-          ],
-        ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+              child: Text(
+            DrugsByIndication.drugs[index].drugName,
+            style: TextStyle(fontSize: 17),
+          ))
+        ],
       ),
     );
   }

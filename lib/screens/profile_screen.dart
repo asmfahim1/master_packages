@@ -30,9 +30,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 200),
                     child: Container(
-                      height: 200,
+                      height: 210,
                       decoration: const BoxDecoration(
-                          color: kDeepGreen,
+                          color: kRoundedColor,
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(30.0),
                               bottomRight: Radius.circular(30.0))),
@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 140,
+                    top: 145,
                     left: 130,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(180.0),
@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 210,
+                    top: 215,
                     left: 205,
                     child: CircleAvatar(
                       backgroundColor: Colors.black,
@@ -97,62 +97,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Container(
                       color: kBackColor,
                       height: 446,
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ReusableTextField(
-                              title: "Enter name",
-                              labelText: "Name",
-                              prefixIcon: const Icon(Icons.person_outline),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 10, right: 10, top: 20),
+                        child: Column(
+                          children: [
+                            ReusableTextField(
+                                obscureText: false,
+                                title: "Enter name",
+                                labelText: "Name",
+                                prefixIcon: const Icon(Icons.person_outline),
+                                suffixIcon: const Icon(Icons.edit),
+                                textEditingController: nameController),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            ReusableTextField(
+                              obscureText: false,
+                              title: "Enter contact number",
+                              labelText: "Contact",
+                              prefixIcon: const Icon(Icons.phone),
                               suffixIcon: const Icon(Icons.edit),
-                              textEditingController: nameController),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ReusableTextField(
-                            title: "Enter contact number",
-                            labelText: "Contact",
-                            prefixIcon: const Icon(Icons.phone),
-                            suffixIcon: const Icon(Icons.edit),
-                            textEditingController: phoneController,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ReusableTextField(
-                              title: "Enter email",
-                              labelText: "Email",
-                              prefixIcon: const Icon(Icons.email_outlined),
-                              suffixIcon: const Icon(Icons.edit),
-                              textEditingController: emailController),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ReusableTextField(
-                              title: "Enter address",
-                              labelText: "Address",
-                              prefixIcon: const Icon(Icons.home_outlined),
-                              suffixIcon: const Icon(Icons.edit),
-                              textEditingController: addressController),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          ReusableTextButtonL(
-                            title: "Save",
-                            onPressed: () {},
-                            color: Colors.white,
-                          ),
-                          const SizedBox(
-                            height: 05,
-                          ),
-                          ReusableTextButtonL(
-                            title: "Cancel",
-                            onPressed: () {},
-                            color: kDeepGreen,
-                          ),
-                        ],
+                              textEditingController: phoneController,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            ReusableTextField(
+                                obscureText: false,
+                                title: "Enter email",
+                                labelText: "Email",
+                                prefixIcon: const Icon(Icons.email_outlined),
+                                suffixIcon: const Icon(Icons.edit),
+                                textEditingController: emailController),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            ReusableTextField(
+                                obscureText: false,
+                                title: "Enter address",
+                                labelText: "Address",
+                                prefixIcon: const Icon(Icons.home_outlined),
+                                suffixIcon: const Icon(Icons.edit),
+                                textEditingController: addressController),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            ReusableTextButtonL(
+                              title: "Save",
+                              onPressed: () {},
+                              color: Colors.white,
+                            ),
+                            const SizedBox(
+                              height: 05,
+                            ),
+                            ReusableTextButtonL(
+                              title: "Cancel",
+                              onPressed: () {},
+                              color: kDeepGreen,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   )

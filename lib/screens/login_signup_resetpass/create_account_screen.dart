@@ -48,6 +48,7 @@ class CreateAccountScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                         ReusableTextField(
+                            obscureText: false,
                             title: "Enter your username",
                             textEditingController: userNameController),
                         SizedBox(
@@ -58,6 +59,7 @@ class CreateAccountScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                         ReusableTextField(
+                            obscureText: false,
                             title: "Enter your email",
                             textEditingController: emailController),
                         SizedBox(
@@ -68,6 +70,7 @@ class CreateAccountScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                         ReusableTextField(
+                            obscureText: true,
                             title: "Enter password",
                             suffixIcon: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -78,6 +81,7 @@ class CreateAccountScreen extends StatelessWidget {
                           height: 20,
                         ),
                         ReusableTextField(
+                            obscureText: true,
                             title: "  Confirm password",
                             textEditingController: confPasswordController),
                         SizedBox(
