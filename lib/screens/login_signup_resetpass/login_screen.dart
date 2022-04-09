@@ -81,6 +81,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ReusableTextButtonL(
                         title: "Login",
+                        color: Colors.white,
                         onPressed: () {
                           Get.to(() => DashboardScreen());
                         },

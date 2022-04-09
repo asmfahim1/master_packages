@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:master_package/screens/home_screen.dart';
 import 'package:master_package/screens/profile_screen.dart';
@@ -69,10 +67,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.search_outlined,
+                Icons.history_outlined,
                 color: Color(0xFF28706F),
               ),
-              label: 'Business',
+              label: 'History',
               backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
@@ -80,7 +78,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Icons.add_shopping_cart,
                 color: Color(0xFF28706F),
               ),
-              label: 'School',
+              label: 'Cart',
               backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
@@ -88,7 +86,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Icons.person_outline,
                 color: Color(0xFF28706F),
               ),
-              label: 'Settings',
+              label: 'Profile',
               backgroundColor: Colors.white,
             ),
           ],

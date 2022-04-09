@@ -85,6 +85,7 @@ class CreateAccountScreen extends StatelessWidget {
                         ),
                         ReusableTextButtonL(
                             title: "Sign up",
+                            color: Colors.white,
                             onPressed: () {
                               debugPrint("signup button pressed");
                               Get.to(() => LoginScreen());
