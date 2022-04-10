@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class ReusableTextButtonL extends StatelessWidget {
   final String title;
+  final Color? color;
   final VoidCallback onPressed;
-  ReusableTextButtonL({required this.title, required this.onPressed});
+  ReusableTextButtonL(
+      {required this.title, this.color, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class ReusableTextButtonL extends StatelessWidget {
       child: Container(
         height: 35,
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            color: color, borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: Text(
             title,

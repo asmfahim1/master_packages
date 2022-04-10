@@ -56,21 +56,19 @@ class LoginScreen extends StatelessWidget {
                       ReusablePTitle(
                         title: "Email",
                       ),
-                      ReusableTextField(
-                          title: "Enter your email",
-                          textEditingController: emailController),
+                      ReusableTextField.withoutSuffixIcon(
+                          "Enter your email", emailController),
                       SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
-                        title: "Enter password",
-                        textEditingController: passwordController,
-                        suffixIcon: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.remove_red_eye_outlined),
-                        ),
-                      ),
+                          "Enter password",
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.remove_red_eye_outlined),
+                          ),
+                          passwordController),
                       Row(
                         children: [
                           Checkbox(value: newValue, onChanged: (newValue) {}),
