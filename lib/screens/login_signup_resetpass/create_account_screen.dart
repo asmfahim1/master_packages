@@ -33,56 +33,53 @@ class CreateAccountScreen extends StatelessWidget {
                             headLineName: "Create an Account",
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
-                        Text(
+                        const Text(
                             "Enter the following information correctly to create account"),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           "Name",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your username",
-                          userNameController,
-                        ),
-                        SizedBox(
+                        ReusableTextField(
+                            title: "Enter username",
+                            textEditingController: userNameController),
+                        const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           "Email",
                           style: TextStyle(fontSize: 20),
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your email",
-                          emailController,
-                        ),
-                        SizedBox(
+                        ReusableTextField(
+                            title: "Enter email",
+                            textEditingController: emailController),
+                        const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           "Password",
                           style: TextStyle(fontSize: 20),
                         ),
                         ReusableTextField(
-                          "Enter password",
-                          Padding(
+                          title: "Enter password",
+                          textEditingController: passwordController,
+                          suffixIcon: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Icon(Icons.remove_red_eye_outlined),
                           ),
-                          passwordController,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Confirm password",
-                          confPasswordController,
-                        ),
-                        SizedBox(
+                        ReusableTextField(
+                            title: "Confirm password",
+                            textEditingController: confPasswordController),
+                        const SizedBox(
                           height: 20,
                         ),
                         ReusableTextButtonL(

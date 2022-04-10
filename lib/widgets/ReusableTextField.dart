@@ -1,24 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ReusableTextField extends StatelessWidget {
-  String? title;
+  String title;
   Widget? suffixIcon;
   TextEditingController textEditingController = TextEditingController();
 
-  ReusableTextField(String title, Widget suffixIcon,
-      TextEditingController textEditingController,
-      {Key? key})
-      : super(key: key) {
-    this.title;
-    this.suffixIcon;
-    this.textEditingController;
-  }
-  ReusableTextField.withoutSuffixIcon(this.title, this.textEditingController,
-      {Key? key})
-      : super(key: key) {
-    title;
-    textEditingController;
-  }
+  ReusableTextField(
+      {required this.title,
+      this.suffixIcon,
+      required this.textEditingController});
 
   @override
   Widget build(BuildContext context) {
