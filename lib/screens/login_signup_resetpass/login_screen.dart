@@ -6,6 +6,7 @@ import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_paa_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
+import 'package:master_package/widgets/ReusableTextfieldPassword.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
@@ -57,19 +58,15 @@ class LoginScreen extends StatelessWidget {
                         title: "Email",
                       ),
                       ReusableTextField(
-                          title: "Enter your email",
-                          textEditingController: emailController),
+                        title: "Enter your email",
+                        textEditingController: emailController,
+                      ),
                       SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(title: "Password"),
-                      ReusableTextField(
+                      ReusableTextfieldPassword(
                         title: "Enter password",
-                        prefixIcon: Icon(Icons.vpn_key),
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.remove_red_eye_outlined),
-                        ),
                         textEditingController: passwordController,
                       ),
                       Row(

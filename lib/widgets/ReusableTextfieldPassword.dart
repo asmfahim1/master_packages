@@ -37,7 +37,7 @@ class ReusableTextfieldPassword extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white),
           ),
         ),
-        obscureText: false,
+        obscureText: true,
       ),
     );
   }
