@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ReusableTextField extends StatelessWidget {
+class ReusableTextfieldPassword extends StatelessWidget {
   String title;
   String? labelText;
   Widget? suffixIcon;
   Widget? prefixIcon;
   TextEditingController textEditingController = TextEditingController();
 
-  ReusableTextField(
+  ReusableTextfieldPassword(
       {Key? key,
       required this.title,
       this.suffixIcon,

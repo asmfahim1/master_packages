@@ -65,6 +65,7 @@ class LoginScreen extends StatelessWidget {
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
                         title: "Enter password",
+                        prefixIcon: Icon(Icons.vpn_key),
                         suffixIcon: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Icon(Icons.remove_red_eye_outlined),
