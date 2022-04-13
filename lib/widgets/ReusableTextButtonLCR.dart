@@ -9,24 +9,27 @@ class ReusableTextButtonL extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: Colors.black,
-            width: 2,
+    return SizedBox(
+      height: 40,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: Colors.black,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(15.0),
           ),
-          borderRadius: BorderRadius.circular(10.0),
+          elevation: 20,
+          shadowColor: Colors.blue,
+          onSurface: Colors.purple,
+          primary: Colors.deepOrangeAccent,
+          backgroundColor: Colors.white,
         ),
-        elevation: 20,
-        shadowColor: Colors.blue,
-        onSurface: Colors.purple,
-        primary: Colors.deepOrangeAccent,
-        backgroundColor: Colors.white,
-      ),
-      onPressed: onPressed,
-      child: Center(
-        child: Text(title),
+        onPressed: onPressed,
+        child: Center(
+          child: Text(title),
+        ),
       ),
     );
   }
