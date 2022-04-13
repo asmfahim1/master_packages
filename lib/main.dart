@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:master_package/screens/user_scren.dart';
 
-void main() {
+void main() async {
+  Hive.initFlutter();
   runApp(const MyApp());
 }
 
