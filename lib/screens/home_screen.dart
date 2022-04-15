@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:master_package/screens/drugs/drus_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
@@ -92,7 +93,8 @@ class HomeScreen extends StatelessWidget {
                               debugPrint("drugs pressed");
                               Get.to(() => const DrugMainScreen());
                             },
-                            iconData: Icons.shop_two_sharp,
+                            // iconData: Icons.shop_two_sharp,
+                            image: 'images/drugs.jpg',
                             headlineText: "Drugs",
                             normalText: "     Look for drugs by types     ",
                           ),
@@ -100,7 +102,8 @@ class HomeScreen extends StatelessWidget {
                             onPress: () {
                               debugPrint("doctors pressed");
                             },
-                            iconData: Icons.person_outline,
+                            // iconData: Icons.person_outline,
+                            image: 'images/doctors',
                             headlineText: "Doctors",
                             normalText: "       Look for best doctors       ",
                           ),
@@ -114,7 +117,8 @@ class HomeScreen extends StatelessWidget {
                             onPress: () {
                               debugPrint("pharmacy pressed");
                             },
-                            iconData: Icons.local_pharmacy_outlined,
+                            // iconData: Icons.local_pharmacy_outlined,
+                            image: 'images/pharmacy.jpg',
                             headlineText: "Pharmacy",
                             normalText: " Look for nearby pharmacies ",
                           ),
@@ -122,7 +126,8 @@ class HomeScreen extends StatelessWidget {
                             onPress: () {
                               debugPrint("hospitals pressed");
                             },
-                            iconData: Icons.local_hospital_outlined,
+                            // iconData: Icons.local_hospital_outlined,
+                            image: 'images/hospitals.jpg',
                             headlineText: "Hospitals",
                             normalText: "   Look for nearby hospitals   ",
                           ),

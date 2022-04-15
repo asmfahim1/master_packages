@@ -9,12 +9,9 @@ class ReusableTextButtonL extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      child: Container(
-        height: 35,
-        decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(10)),
+    return SizedBox(
+      child: TextButton(
+        onPressed: onPressed,
         child: Center(
           child: Text(
             title,
