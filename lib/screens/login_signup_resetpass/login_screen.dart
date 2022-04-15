@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/reset_paa_screen.dart';
+import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
 import '../../widgets/CircularWidget.dart';
