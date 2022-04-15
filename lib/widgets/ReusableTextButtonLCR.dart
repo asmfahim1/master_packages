@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_package/constants/constants.dart';
 
 class ReusableTextButtonL extends StatelessWidget {
   final String title;
@@ -14,21 +15,17 @@ class ReusableTextButtonL extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: Colors.black,
-              width: 2,
-            ),
             borderRadius: BorderRadius.circular(15.0),
           ),
-          elevation: 20,
-          shadowColor: Colors.blue,
-          onSurface: Colors.purple,
-          primary: Colors.deepOrangeAccent,
-          backgroundColor: Colors.white,
+          primary: kDeepGreen,
+          backgroundColor: color,
         ),
         onPressed: onPressed,
         child: Center(
-          child: Text(title),
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 18, color: Colors.black),
+          ),
         ),
       ),
     );

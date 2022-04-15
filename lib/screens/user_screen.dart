@@ -27,7 +27,7 @@ class _UserScreenState extends State<UserScreen> {
                 height: 30,
                 width: 100,
                 color: Colors.white,
-                child: Text(
+                child: const Text(
                   "USER",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
@@ -41,7 +41,7 @@ class _UserScreenState extends State<UserScreen> {
                 height: 30,
                 width: 100,
                 color: Colors.white,
-                child: Text(
+                child: const Text(
                   "ADMIN",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),

@@ -1,8 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:master_package/screens/doctors/doctors_main_screen.dart';
+import 'package:master_package/screens/drugs/drus_main_screen.dart';
+import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
+import 'package:master_package/screens/pharmacy/pharmacy_main_screen.dart';
 
-import '../constants.dart';
+import '../constants/constants.dart';
 import '../widgets/ReusableHeadlineText.dart';
 import '../widgets/dashboard_textbutton.dart';
 
@@ -13,7 +19,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kDeepGreen,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.menu,
+              size: 25,
+            )),
         actions: [
           IconButton(
               onPressed: () {
@@ -25,6 +38,7 @@ class HomeScreen extends StatelessWidget {
               ))
         ],
       ),
+      backgroundColor: kDeepGreen,
       body: Column(
         children: [
           SizedBox(
@@ -66,7 +80,7 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: kRoundedColor,
+                color: kBackColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30.0),
                   topRight: Radius.circular(30.0),
@@ -77,44 +91,52 @@ class HomeScreen extends StatelessWidget {
                     left: 2, right: 2, top: 25, bottom: 0),
                 child: Column(
                   children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          DashboardTextButton(
-                            onPress: () {
-                              debugPrint("drugs pressed");
-                            },
-                            iconData: Icons.shop_two_sharp,
-                            headlineText: "Drugs",
-                            normalText: "     Look for drugs by types     ",
-                          ),
-                          DashboardTextButton(
-                            onPress: () {
-                              debugPrint("doctors pressed");
-                            },
-                            iconData: Icons.person_outline,
-                            headlineText: "Doctors",
-                            normalText: "       Look for best doctors       ",
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        DashboardTextButton(
+                          onPress: () {
+                            debugPrint("drugs pressed");
+                            Get.to(() => const DrugMainScreen());
+                          },
+                          // iconData: Icons.shop_two_sharp,
+                          image: 'images/drugs.jpg',
+                          headlineText: "Drugs",
+                          normalText: "     Look for drugs by types     ",
+                        ),
+                        DashboardTextButton(
+                          onPress: () {
+                            debugPrint("doctors pressed");
+                            Get.to(() => const DoctorMScreen());
+                          },
+                          // iconData: Icons.person_outline,
+                          image: 'images/doctors.jpg',
+                          headlineText: "Doctors",
+                          normalText: "       Look for best doctors       ",
+                        ),
+                      ],
                     ),
                     Expanded(
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("pharmacy pressed");
+                              Get.to(() => const PharmacyScreen());
                             },
-                            iconData: Icons.local_pharmacy_outlined,
+                            // iconData: Icons.local_pharmacy_outlined,
+                            image: 'images/pharmacy.jpg',
                             headlineText: "Pharmacy",
                             normalText: " Look for nearby pharmacies ",
                           ),
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("hospitals pressed");
+                              Get.to(() => HospitalMScreen());
                             },
-                            iconData: Icons.local_hospital_outlined,
+                            // iconData: Icons.local_hospital_outlined,
+                            image: 'images/hospitals.jpg',
                             headlineText: "Hospitals",
                             normalText: "   Look for nearby hospitals   ",
                           ),
