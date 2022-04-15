@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 import 'package:master_package/widgets/ReusableTitleText.dart';
@@ -18,10 +20,22 @@ class ResetPassScreen extends StatelessWidget {
         child: Scaffold(
           body: Column(
             children: [
-              CircularContainer(),
+              CircularContainer(
+                iconData: IconButton(
+                  splashColor: kDeepGreen,
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 25,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
               Expanded(
                 child: Container(
-                  color: Color(0xFF28706F),
+                  color: kDeepGreen,
                   child: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -33,23 +47,25 @@ class ResetPassScreen extends StatelessWidget {
                               headLineName: 'Reset Password',
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
-                          Text(
-                              "Forgot your password? Enter your email that you have used to create this account"),
-                          SizedBox(
+                          const Text(
+                            "Forgot your password? Enter your email that you have used to create this account",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          const SizedBox(
                             height: 40,
                           ),
                           ReusablePTitle(title: "Email"),
                           SizedBox(
                             height: 50,
                             child: ReusableTextField(
-                                obscureText: false,
+                                prefixIcon: Icon(Icons.email_outlined),
                                 title: "Enter your email",
                                 textEditingController: emailController),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 40,
                           ),
                           ReusableTextButtonL(

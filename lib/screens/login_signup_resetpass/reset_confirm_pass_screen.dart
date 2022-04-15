@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
@@ -18,10 +20,22 @@ class ResetConfirmPassScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            CircularContainer(),
+            CircularContainer(
+              iconData: IconButton(
+                splashColor: kDeepGreen,
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  size: 25,
+                  color: Colors.white,
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
-                color: Color(0xFF28706F),
+                color: kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -38,7 +52,6 @@ class ResetConfirmPassScreen extends StatelessWidget {
                         ),
                         ReusablePTitle(title: "Password"),
                         ReusableTextField(
-                            obscureText: true,
                             title: "Enter password",
                             suffixIcon: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -47,7 +60,6 @@ class ResetConfirmPassScreen extends StatelessWidget {
                             textEditingController: passwordController),
                         SizedBox(height: 20),
                         ReusableTextField(
-                            obscureText: true,
                             title: "Confirm password",
                             textEditingController: confPasswordController),
                         SizedBox(height: 20),

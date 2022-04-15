@@ -16,8 +16,8 @@ class DrugMainScreen extends StatefulWidget {
 
 class _DrugMainScreenState extends State<DrugMainScreen> {
   TextEditingController searchController = TextEditingController();
-  Icon cusIcon = Icon(Icons.search_outlined);
-  Widget cusSearchBar = Text("Drugs");
+  Icon cusIcon = const Icon(Icons.search_outlined);
+  Widget cusSearchBar = const Text("Drugs");
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +42,9 @@ class _DrugMainScreenState extends State<DrugMainScreen> {
                       cusIcon = const Icon(Icons.cancel);
                       cusSearchBar = TextField(
                         controller: searchController,
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                        decoration: InputDecoration(
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 15),
+                        decoration: const InputDecoration(
                           filled: true,
                           fillColor: kBackColor,
                           hintText: "Search for medicines",

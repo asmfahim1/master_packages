@@ -8,7 +8,7 @@ class ReusablePTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(fontSize: 20, color: Colors.white),
+      style: const TextStyle(fontSize: 20, color: Colors.white),
     );
   }
 }

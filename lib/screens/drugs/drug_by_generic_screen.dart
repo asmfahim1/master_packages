@@ -9,13 +9,12 @@ class DrugByGenericScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-        child: ListView.builder(
-            itemCount: DrugsByGeneric.drugs.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                  color: Colors.white, child: DrugByGenericCard(index: index));
-            }));
+    return ListView.builder(
+        itemCount: DrugsByGeneric.drugs.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+              color: Colors.white, child: DrugByGenericCard(index: index));
+        });
   }
 }
 

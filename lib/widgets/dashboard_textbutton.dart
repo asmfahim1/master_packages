@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../constants/constants.dart';
+
 class DashboardTextButton extends StatelessWidget {
   String headlineText;
   String normalText;
@@ -18,42 +20,42 @@ class DashboardTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 160,
+      width: 160,
       child: TextButton(
         onPressed: onPress,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(8.0),
-                  topRight: Radius.circular(8.0),
-                ),
-                child:
-                    Image.asset(image, width: 70, height: 70, fit: BoxFit.fill),
-              ),
-              Text(
-                headlineText,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                normalText,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold),
-              )
-            ],
-          ),
+          primary: kDeepGreen,
+          backgroundColor: Colors.white,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child:
+                  Image.asset(image, width: 65, height: 65, fit: BoxFit.fill),
+            ),
+            Text(
+              headlineText,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              normalText,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold),
+            )
+          ],
         ),
       ),
     );
