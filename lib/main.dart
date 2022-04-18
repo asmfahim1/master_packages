@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Hello Pharma',
       theme: ThemeData().copyWith(
         // primaryColor: Color(0xFF28706F),
         scaffoldBackgroundColor: Color(0xFF28706F),
