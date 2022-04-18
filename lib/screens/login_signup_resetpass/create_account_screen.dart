@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
 import 'package:master_package/widgets/ReusablePasswordField.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
@@ -8,7 +11,6 @@ import 'package:master_package/widgets/ReusableTitleText.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
-import 'login_screen.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   CreateAccountScreen({Key? key}) : super(key: key);
@@ -16,6 +18,18 @@ class CreateAccountScreen extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confPasswordController = TextEditingController();
+
+  // post method a kono model class create korte hoy na.
+  postMethod() async {
+    var response = await http.post(
+        Uri.parse('https://pharmacy.brotherdev.com/register.php'),
+        body: jsonEncode(<String, String>{
+          "name": userNameController.text,
+          "email": emailController.text,
+          "password": passwordController.text
+        }));
+    debugPrint(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +78,12 @@ class CreateAccountScreen extends StatelessWidget {
                           title: "Name",
                         ),
                         ReusableTextField(
-                            title: "Enter your username",
-                            textEditingController: userNameController),
+                          prefixIcon: Icon(Icons.person_outline_outlined),
+                          title: "Enter your username",
+                          textEditingController: userNameController,
+                        ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         ReusablePTitle(
                           title: "Email",
@@ -77,30 +93,43 @@ class CreateAccountScreen extends StatelessWidget {
                             title: "Enter your email",
                             textEditingController: emailController),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         ReusablePTitle(
                           title: "Password",
                         ),
                         ReusableTextfieldPassword(
-                            title: "Enter password",
-                            textEditingController: passwordController),
+                          title: "Enter password",
+                          textEditingController: passwordController,
+                        ),
                         const SizedBox(
                           height: 20,
                         ),
                         ReusableTextfieldPassword(
-                            title: "  Confirm password",
-                            textEditingController: confPasswordController),
+                          title: "Confirm password",
+                          textEditingController: confPasswordController,
+                        ),
                         const SizedBox(
-                          height: 20,
+                          height: 40,
                         ),
                         ReusableTextButtonL(
                             title: "Sign up",
                             color: Colors.white,
                             onPressed: () {
                               debugPrint("signup button pressed");
-                              Get.to(() => LoginScreen());
-                            })
+                              if (passwordController.text ==
+                                  confPasswordController.text) {
+                                debugPrint('Success');
+                                postMethod();
+                              } else {
+                                Get.snackbar(
+                                    'Error', "Password did not matched");
+                              }
+                              userNameController.clear();
+                              emailController.clear();
+                              passwordController.clear();
+                              confPasswordController.clear();
+                            }),
                       ],
                     ),
                   ),

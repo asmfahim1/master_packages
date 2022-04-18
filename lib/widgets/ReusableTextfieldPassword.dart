@@ -24,7 +24,7 @@ class ReusableTextfieldPassword extends StatelessWidget {
         controller: textEditingController,
         decoration: InputDecoration(
           hintText: title,
-          hintStyle: TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
           labelText: labelText,
           labelStyle:
               TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

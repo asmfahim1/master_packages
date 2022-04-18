@@ -25,7 +25,7 @@ class ReusableTextField extends StatelessWidget {
         controller: textEditingController,
         decoration: InputDecoration(
           hintText: title,
-          hintStyle: TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
           // labelText: labelText,
           labelStyle:
               TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -35,7 +35,7 @@ class ReusableTextField extends StatelessWidget {
           prefixIcon: prefixIcon,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: const BorderSide(color: Colors.white),
           ),
         ),
         obscureText: false,

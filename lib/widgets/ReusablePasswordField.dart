@@ -1,41 +1,73 @@
 import 'package:flutter/material.dart';
 
-class ReusableTextfieldPassword extends StatelessWidget {
+class ReusableTextfieldPassword extends StatefulWidget {
   String title;
   String? labelText;
+  // bool? obscureText;
 
   TextEditingController textEditingController = TextEditingController();
 
-  ReusableTextfieldPassword(
-      {Key? key,
-      required this.title,
-      required this.textEditingController,
-      this.labelText})
-      : super(key: key);
+  ReusableTextfieldPassword({
+    Key? key,
+    required this.title,
+    required this.textEditingController,
+    this.labelText,
+    // this.obscureText,
+  }) : super(key: key);
+
+  @override
+  State<ReusableTextfieldPassword> createState() =>
+      _ReusableTextfieldPasswordState();
+}
+
+class _ReusableTextfieldPasswordState extends State<ReusableTextfieldPassword> {
+  bool _obscureText = true;
+  bool validator = false;
+  void toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       child: TextField(
-        controller: textEditingController,
+        controller: widget.textEditingController,
         decoration: InputDecoration(
-          hintText: title,
+          hintText: widget.title,
           hintStyle: TextStyle(color: Colors.grey),
-          labelText: labelText,
+          labelText: widget.labelText,
           labelStyle:
               TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           fillColor: Colors.white,
           filled: true,
-          suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+          suffixIcon: IconButton(
+              onPressed: () {
+                toggle();
+              },
+              icon: Icon(_obscureText
+                  ? Icons.remove_moderator
+                  : Icons.remove_red_eye_outlined)),
           prefixIcon: const Icon(Icons.vpn_key),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.white),
           ),
+          errorText: validator ? "Value can not be empty" : null,
         ),
-        obscureText: true,
+        obscureText: _obscureText,
+        obscuringCharacter: '*',
       ),
     );
   }
 }
+
+// validator: (input) {
+// if (input!.isEmpty) {
+// return "Name can not be empty";
+// }
+// },
