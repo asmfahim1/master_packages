@@ -89,14 +89,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         ReusableTextButtonL(
                           text: isLoading
-                              ? SizedBox(
+                              ? const SizedBox(
                                   height: 25,
                                   width: 25,
                                   child: CircularProgressIndicator(
                                     color: kDeepGreen,
                                   ),
                                 )
-                              : Text(
+                              : const Text(
                                   "Login",
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     TextStyle(color: Colors.blue, fontSize: 18),
                               ),
                               onTap: () {
-                                Get.to(CreateAccountScreen());
+                                Get.to(() => CreateAccountScreen());
                               },
                             )
                           ],
