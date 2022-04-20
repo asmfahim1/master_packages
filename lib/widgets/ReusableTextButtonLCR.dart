@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:master_package/constants/constants.dart';
 
 class ReusableTextButtonL extends StatelessWidget {
-  final String title;
+  // final String title;
+  Widget text;
   final Color? color;
   final VoidCallback onPressed;
   ReusableTextButtonL(
-      {required this.title, this.color, required this.onPressed});
+      {required this.text, this.color, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +22,7 @@ class ReusableTextButtonL extends StatelessWidget {
           backgroundColor: color,
         ),
         onPressed: onPressed,
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 18, color: Colors.black),
-          ),
-        ),
+        child: Center(child: text),
       ),
     );
   }

@@ -123,7 +123,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           height: 40,
                         ),
                         ReusableTextButtonL(
-                            title: "Sign up",
+                            text: Text(
+                              "Sign up",
+                              style: TextStyle(fontSize: 18),
+                            ),
                             color: Colors.white,
                             onPressed: () {
                               debugPrint("signup button pressed");

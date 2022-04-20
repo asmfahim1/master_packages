@@ -64,7 +64,10 @@ class ResetConfirmPassScreen extends StatelessWidget {
                             textEditingController: confPasswordController),
                         SizedBox(height: 20),
                         ReusableTextButtonL(
-                          title: "Done",
+                          text: Text(
+                            "Done",
+                            style: TextStyle(fontSize: 18),
+                          ),
                           color: Colors.white,
                           onPressed: () {
                             debugPrint("Done pressed");

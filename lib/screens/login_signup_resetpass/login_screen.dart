@@ -8,6 +8,7 @@ import 'package:master_package/widgets/ReusablePasswordField.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
+import '../../widgets/ReusableTextButtonLCR.dart';
 import '../../widgets/ReusableTextField.dart';
 import '../../widgets/ReusableTitleText.dart';
 
@@ -51,14 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         const Text(
                           "Sign in with your data that you entered during registration to continue",
                           style: TextStyle(color: Colors.white),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 25,
                         ),
                         ReusablePTitle(
                           title: "Email",
@@ -68,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             title: "Enter your email",
                             textEditingController: emailController),
                         const SizedBox(
-                          height: 20,
+                          height: 25,
                         ),
                         ReusablePTitle(title: "Password"),
                         ReusableTextfieldPassword(
@@ -86,56 +87,72 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        // ReusableTextButtonL(
-                        //   title: "Login",
-                        //   color: Colors.white,
-                        //   onPressed: () {
-                        //     isLoading = true;
-                        //     Future.delayed(Duration(seconds: 1),(){});
-                        //
-                        //     emailController.clear();
-                        //     passwordController.clear();
-                        //     Get.to(() => DashboardScreen());
-                        //   },
-                        // ),
-                        SizedBox(
-                          height: 40,
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              primary: kDeepGreen,
-                              backgroundColor: Colors.white,
-                            ),
-                            onPressed: () {
+                        ReusableTextButtonL(
+                          text: isLoading
+                              ? SizedBox(
+                                  height: 25,
+                                  width: 25,
+                                  child: CircularProgressIndicator(
+                                    color: kDeepGreen,
+                                  ),
+                                )
+                              : Text(
+                                  "Login",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                          color: Colors.white,
+                          onPressed: () {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            Future.delayed(Duration(seconds: 1), () {
                               setState(() {
-                                isLoading = true;
+                                isLoading = false;
+                                Get.to(() => DashboardScreen());
                               });
-                              Future.delayed(Duration(seconds: 1), () {
-                                setState(() {
-                                  isLoading = false;
-                                  Get.to(() => DashboardScreen());
-                                });
-                              });
-                            },
-                            child: Center(
-                              child: isLoading
-                                  ? const SizedBox(
-                                      width: 25,
-                                      height: 25,
-                                      child: CircularProgressIndicator(
-                                        color: Colors.black,
-                                      ),
-                                    )
-                                  : const Text(
-                                      "Login",
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.black),
-                                    ),
-                            ),
-                          ),
+                            });
+                            emailController.clear();
+                            passwordController.clear();
+                          },
                         ),
+                        // SizedBox(
+                        //   height: 40,
+                        //   child: TextButton(
+                        //     style: TextButton.styleFrom(
+                        //       shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(15.0),
+                        //       ),
+                        //       primary: kDeepGreen,
+                        //       backgroundColor: Colors.white,
+                        //     ),
+                        //     onPressed: () {
+                        //       setState(() {
+                        //         isLoading = true;
+                        //       });
+                        //       Future.delayed(Duration(seconds: 1), () {
+                        //         setState(() {
+                        //           isLoading = false;
+                        //           Get.to(() => DashboardScreen());
+                        //         });
+                        //       });
+                        //     },
+                        //     child: Center(
+                        //       child: isLoading
+                        //           ? const SizedBox(
+                        //               width: 25,
+                        //               height: 25,
+                        //               child: CircularProgressIndicator(
+                        //                 color: Colors.black,
+                        //               ),
+                        //             )
+                        //           : const Text(
+                        //               "Login",
+                        //               style: TextStyle(
+                        //                   fontSize: 18, color: Colors.black),
+                        //             ),
+                        //     ),
+                        //   ),
+                        // ),
                         const SizedBox(
                           height: 10,
                         ),
