@@ -12,11 +12,20 @@ import 'package:master_package/widgets/ReusableTitleText.dart';
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 
-class CreateAccountScreen extends StatelessWidget {
-  CreateAccountScreen({Key? key}) : super(key: key);
+class CreateAccountScreen extends StatefulWidget {
+  const CreateAccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   TextEditingController userNameController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   TextEditingController confPasswordController = TextEditingController();
 
   // post method a kono model class create korte hoy na.
@@ -78,20 +87,21 @@ class CreateAccountScreen extends StatelessWidget {
                           title: "Name",
                         ),
                         ReusableTextField(
-                          prefixIcon: Icon(Icons.person_outline_outlined),
+                          prefixIcon: const Icon(Icons.person_outline_outlined),
                           title: "Enter your username",
                           textEditingController: userNameController,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         ReusablePTitle(
                           title: "Email",
                         ),
                         ReusableTextField(
-                            prefixIcon: const Icon(Icons.email_outlined),
-                            title: "Enter your email",
-                            textEditingController: emailController),
+                          prefixIcon: const Icon(Icons.email_outlined),
+                          title: "Enter your email",
+                          textEditingController: emailController,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
@@ -99,8 +109,8 @@ class CreateAccountScreen extends StatelessWidget {
                           title: "Password",
                         ),
                         ReusableTextfieldPassword(
-                          title: "Enter password",
                           textEditingController: passwordController,
+                          title: "Enter your password",
                         ),
                         const SizedBox(
                           height: 20,
@@ -123,7 +133,12 @@ class CreateAccountScreen extends StatelessWidget {
                                 postMethod();
                               } else {
                                 Get.snackbar(
-                                    'Error', "Password did not matched");
+                                  "Error",
+                                  "Password did not matched",
+                                  colorText: Colors.white,
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: Colors.green,
+                                );
                               }
                               userNameController.clear();
                               emailController.clear();

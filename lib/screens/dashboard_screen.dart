@@ -37,7 +37,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   TextEditingController dashboardController = TextEditingController();
   int _selectedIndex = 0;
-  final screens = [
+  final screens = const [
     HomeScreen(),
     SearchScreen(),
     CartScreen(),

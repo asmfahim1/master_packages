@@ -6,16 +6,18 @@ class ReusableTextField extends StatelessWidget {
   Widget? suffixIcon;
   Widget? prefixIcon;
   // bool? obscureText;
+  String? errorText;
   TextEditingController textEditingController = TextEditingController();
 
-  ReusableTextField({
-    Key? key,
-    required this.title,
-    this.suffixIcon,
-    this.prefixIcon,
-    required this.textEditingController,
-    this.labelText,
-  }) : super(key: key);
+  ReusableTextField(
+      {Key? key,
+      required this.title,
+      this.suffixIcon,
+      this.prefixIcon,
+      required this.textEditingController,
+      this.labelText,
+      this.errorText})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +27,10 @@ class ReusableTextField extends StatelessWidget {
         controller: textEditingController,
         decoration: InputDecoration(
           hintText: title,
-          hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+          hintStyle: const TextStyle(color: Colors.grey, fontSize: 17),
           // labelText: labelText,
           labelStyle:
-              TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           fillColor: Colors.white,
           filled: true,
           suffixIcon: suffixIcon,
@@ -37,6 +39,7 @@ class ReusableTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.white),
           ),
+          errorText: errorText,
         ),
         obscureText: false,
       ),

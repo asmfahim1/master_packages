@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
+import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusablePasswordField.dart';
-import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 import '../../widgets/ReusableTextField.dart';
 import '../../widgets/ReusableTitleText.dart';
-import '../dashboard_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({
     Key? key,
   }) : super(key: key);
 
+  static const bool newValue = true;
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
-  final GlobalKey<FormState> _fromKey = GlobalKey();
-
-  static const bool newValue = true;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -72,21 +77,64 @@ class LoginScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Checkbox(value: newValue, onChanged: (newValue) {}),
+                            Checkbox(
+                                value: LoginScreen.newValue,
+                                onChanged: (newValue) {}),
                             const Text(
                               "Keep me logged in",
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
-                        ReusableTextButtonL(
-                          title: "Login",
-                          color: Colors.white,
-                          onPressed: () {
-                            emailController.clear();
-                            passwordController.clear();
-                            Get.to(() => DashboardScreen());
-                          },
+                        // ReusableTextButtonL(
+                        //   title: "Login",
+                        //   color: Colors.white,
+                        //   onPressed: () {
+                        //     isLoading = true;
+                        //     Future.delayed(Duration(seconds: 1),(){});
+                        //
+                        //     emailController.clear();
+                        //     passwordController.clear();
+                        //     Get.to(() => DashboardScreen());
+                        //   },
+                        // ),
+                        SizedBox(
+                          height: 40,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              primary: kDeepGreen,
+                              backgroundColor: Colors.white,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              Future.delayed(Duration(seconds: 1), () {
+                                setState(() {
+                                  isLoading = false;
+                                  Get.to(() => DashboardScreen());
+                                });
+                              });
+                            },
+                            child: Center(
+                              child: isLoading
+                                  ? const SizedBox(
+                                      width: 25,
+                                      height: 25,
+                                      child: CircularProgressIndicator(
+                                        color: Colors.black,
+                                      ),
+                                    )
+                                  : const Text(
+                                      "Login",
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.black),
+                                    ),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 10,
