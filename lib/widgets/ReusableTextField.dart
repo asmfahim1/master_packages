@@ -22,26 +22,29 @@ class ReusableTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      child: TextField(
-        controller: textEditingController,
-        decoration: InputDecoration(
-          hintText: title,
-          hintStyle: const TextStyle(color: Colors.grey, fontSize: 17),
-          // labelText: labelText,
-          labelStyle:
-              const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          fillColor: Colors.white,
-          filled: true,
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(color: Colors.white),
+      height: 100,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: TextField(
+          controller: textEditingController,
+          decoration: InputDecoration(
+            prefixIcon: prefixIcon,
+            hintText: title,
+            // labelText: 'Enter the Value',
+            errorText: errorText,
+            errorStyle: TextStyle(
+              fontSize: 15,
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.white),
+            ),
           ),
-          errorText: errorText,
+          keyboardType: TextInputType.emailAddress,
+          maxLength: 10,
         ),
-        obscureText: false,
       ),
     );
   }

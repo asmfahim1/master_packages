@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 class ReusableTextfieldPassword extends StatefulWidget {
   String title;
   String? labelText;
+  String? errorText;
   // bool? obscureText;
 
   TextEditingController textEditingController = TextEditingController();
 
-  ReusableTextfieldPassword({
-    Key? key,
-    required this.title,
-    required this.textEditingController,
-    this.labelText,
-    // this.obscureText,
-  }) : super(key: key);
+  ReusableTextfieldPassword(
+      {Key? key,
+      required this.title,
+      required this.textEditingController,
+      this.labelText,
+      required this.errorText
+      // this.obscureText,
+      })
+      : super(key: key);
 
   @override
   State<ReusableTextfieldPassword> createState() =>
@@ -22,14 +25,14 @@ class ReusableTextfieldPassword extends StatefulWidget {
 
 class _ReusableTextfieldPasswordState extends State<ReusableTextfieldPassword> {
   bool _obscureText = true;
+
   bool validator = false;
+
   void toggle() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
-
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +48,7 @@ class _ReusableTextfieldPasswordState extends State<ReusableTextfieldPassword> {
               TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           fillColor: Colors.white,
           filled: true,
+          errorText: widget.errorText,
           suffixIcon: IconButton(
               onPressed: () {
                 toggle();
@@ -57,7 +61,6 @@ class _ReusableTextfieldPasswordState extends State<ReusableTextfieldPassword> {
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.white),
           ),
-          errorText: validator ? "Value can not be empty" : null,
         ),
         obscureText: _obscureText,
         obscuringCharacter: '*',
@@ -65,9 +68,3 @@ class _ReusableTextfieldPasswordState extends State<ReusableTextfieldPassword> {
     );
   }
 }
-
-// validator: (input) {
-// if (input!.isEmpty) {
-// return "Name can not be empty";
-// }
-// },

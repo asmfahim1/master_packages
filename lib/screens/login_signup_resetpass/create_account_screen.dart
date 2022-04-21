@@ -40,6 +40,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     debugPrint(response.body);
   }
 
+  bool validate = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,7 +66,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 color: kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -74,14 +76,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         const Text(
                           "Enter the following information correctly to create account",
                           style: TextStyle(color: Colors.white),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         ReusablePTitle(
                           title: "Name",
@@ -109,6 +111,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           title: "Password",
                         ),
                         ReusableTextfieldPassword(
+                          errorText: validate ? "Field can't be empty" : null,
                           textEditingController: passwordController,
                           title: "Enter your password",
                         ),
@@ -116,11 +119,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           height: 20,
                         ),
                         ReusableTextfieldPassword(
-                          title: "Confirm password",
+                          errorText: validate ? "Field can't be empty" : null,
                           textEditingController: confPasswordController,
+                          title: "Confirm password",
                         ),
                         const SizedBox(
-                          height: 40,
+                          height: 20,
                         ),
                         ReusableTextButtonL(
                             text: Text(
@@ -129,24 +133,32 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             ),
                             color: Colors.white,
                             onPressed: () {
-                              debugPrint("signup button pressed");
-                              if (passwordController.text ==
-                                  confPasswordController.text) {
-                                debugPrint('Success');
-                                postMethod();
-                              } else {
-                                Get.snackbar(
-                                  "Error",
-                                  "Password did not matched",
-                                  colorText: Colors.white,
-                                  snackPosition: SnackPosition.BOTTOM,
-                                  backgroundColor: Colors.green,
-                                );
-                              }
-                              userNameController.clear();
-                              emailController.clear();
-                              passwordController.clear();
-                              confPasswordController.clear();
+                              setState(() {
+                                passwordController.text.isEmpty
+                                    ? validate = true
+                                    : validate = false;
+                                confPasswordController.text.isEmpty
+                                    ? validate = true
+                                    : validate = false;
+                                debugPrint("signup button pressed");
+                                if (passwordController.text ==
+                                    confPasswordController.text) {
+                                  debugPrint('Success');
+                                  postMethod();
+                                } else {
+                                  Get.snackbar(
+                                    "Error",
+                                    "Password did not matched",
+                                    colorText: Colors.white,
+                                    snackPosition: SnackPosition.BOTTOM,
+                                    backgroundColor: Colors.green,
+                                  );
+                                }
+                                userNameController.clear();
+                                emailController.clear();
+                                passwordController.clear();
+                                confPasswordController.clear();
+                              });
                             }),
                       ],
                     ),

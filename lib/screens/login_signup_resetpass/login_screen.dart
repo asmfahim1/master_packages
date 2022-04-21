@@ -29,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
 
   bool isLoading = false;
+  bool validate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -65,17 +66,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           title: "Email",
                         ),
                         ReusableTextField(
-                            prefixIcon: const Icon(Icons.email_outlined),
-                            title: "Enter your email",
-                            textEditingController: emailController),
-                        const SizedBox(
-                          height: 25,
+                          prefixIcon: const Icon(Icons.email_outlined),
+                          title: "Enter your email",
+                          textEditingController: emailController,
                         ),
                         ReusablePTitle(title: "Password"),
                         ReusableTextfieldPassword(
+                          errorText: validate ? "Field can't be empty" : null,
                           title: "Enter password",
                           textEditingController: passwordController,
                         ),
+
                         Row(
                           children: [
                             Checkbox(
@@ -86,6 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
+                        ),
+                        const SizedBox(
+                          height: 25,
                         ),
                         ReusableTextButtonL(
                           text: isLoading
@@ -104,6 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             setState(() {
                               isLoading = true;
+                              passwordController.text.isEmpty
+                                  ? validate = true
+                                  : validate = false;
                             });
                             Future.delayed(Duration(seconds: 1), () {
                               setState(() {

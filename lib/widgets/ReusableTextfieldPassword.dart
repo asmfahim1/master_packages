@@ -5,6 +5,7 @@ class ReusableTextfieldPassword extends StatelessWidget {
   String? labelText;
   Widget? suffixIcon;
   Widget? prefixIcon;
+  String? errorText;
   TextEditingController textEditingController = TextEditingController();
 
   ReusableTextfieldPassword(
@@ -13,7 +14,8 @@ class ReusableTextfieldPassword extends StatelessWidget {
       this.suffixIcon,
       this.prefixIcon,
       required this.textEditingController,
-      this.labelText})
+      this.labelText,
+      this.errorText})
       : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class ReusableTextfieldPassword extends StatelessWidget {
           filled: true,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
+          errorText: errorText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: Colors.white),
