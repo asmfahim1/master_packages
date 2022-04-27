@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
+import 'package:master_package/widgets/ReusablePasswordField.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
+import 'package:master_package/widgets/ReusableTitleText.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
+import 'login_screen.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   CreateAccountScreen({Key? key}) : super(key: key);
@@ -18,10 +23,22 @@ class CreateAccountScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            CircularContainer(),
+            CircularContainer(
+              iconData: IconButton(
+                splashColor: kDeepGreen,
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  size: 25,
+                  color: Colors.white,
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
-                color: Color(0xFF28706F),
+                color: kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -33,62 +50,56 @@ class CreateAccountScreen extends StatelessWidget {
                             headLineName: "Create an Account",
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
-                        Text(
-                            "Enter the following information correctly to create account"),
-                        SizedBox(
+                        const Text(
+                          "Enter the following information correctly to create account",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        const SizedBox(
                           height: 20,
                         ),
-                        Text(
-                          "Name",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your username",
-                          userNameController,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "Email",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Enter your email",
-                          emailController,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "Password",
-                          style: TextStyle(fontSize: 20),
+                        ReusablePTitle(
+                          title: "Name",
                         ),
                         ReusableTextField(
-                          "Enter password",
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.remove_red_eye_outlined),
-                          ),
-                          passwordController,
-                        ),
+                            title: "Enter your username",
+                            textEditingController: userNameController),
                         SizedBox(
                           height: 20,
                         ),
-                        ReusableTextField.withoutSuffixIcon(
-                          "Confirm password",
-                          confPasswordController,
+                        ReusablePTitle(
+                          title: "Email",
                         ),
-                        SizedBox(
+                        ReusableTextField(
+                            prefixIcon: const Icon(Icons.email_outlined),
+                            title: "Enter your email",
+                            textEditingController: emailController),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ReusablePTitle(
+                          title: "Password",
+                        ),
+                        ReusableTextfieldPassword(
+                            title: "Enter password",
+                            textEditingController: passwordController),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ReusableTextfieldPassword(
+                            title: "  Confirm password",
+                            textEditingController: confPasswordController),
+                        const SizedBox(
                           height: 20,
                         ),
                         ReusableTextButtonL(
                             title: "Sign up",
+                            color: Colors.white,
                             onPressed: () {
                               debugPrint("signup button pressed");
+                              Get.to(() => LoginScreen());
                             })
                       ],
                     ),
