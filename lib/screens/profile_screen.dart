@@ -99,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     padding: const EdgeInsets.only(top: 270),
                     child: Container(
                       color: kDeepGreen,
-                      height: 446,
+                      height: 600,
                       child: Padding(
                         padding:
                             const EdgeInsets.only(left: 10, right: 10, top: 20),
@@ -111,9 +111,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 prefixIcon: const Icon(Icons.person_outline),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: nameController),
-                            const SizedBox(
-                              height: 15,
-                            ),
                             ReusableTextField(
                               title: "Enter contact number",
                               labelText: "Contact",
@@ -121,39 +118,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               suffixIcon: const Icon(Icons.edit),
                               textEditingController: phoneController,
                             ),
-                            const SizedBox(
-                              height: 15,
-                            ),
                             ReusableTextField(
                                 title: "Enter email",
                                 labelText: "Email",
                                 prefixIcon: const Icon(Icons.email_outlined),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: emailController),
-                            const SizedBox(
-                              height: 15,
-                            ),
                             ReusableTextField(
                                 title: "Enter address",
                                 labelText: "Address",
                                 prefixIcon: const Icon(Icons.home_outlined),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: addressController),
-                            const SizedBox(
-                              height: 40,
-                            ),
                             ReusableTextButtonL(
                               text: Text("Save"),
                               onPressed: () {},
-                              color: Colors.white,
-                            ),
-                            const SizedBox(
-                              height: 20,
                             ),
                             ReusableTextButtonL(
                               text: Text("Cancel"),
                               onPressed: () {},
-                              color: kBackColor,
                             ),
                           ],
                         ),
