@@ -56,19 +56,21 @@ class LoginScreen extends StatelessWidget {
                       ReusablePTitle(
                         title: "Email",
                       ),
-                      ReusableTextField.withoutSuffixIcon(
-                          "Enter your email", emailController),
+                      ReusableTextField(
+                          title: "Enter your email",
+                          textEditingController: emailController),
                       SizedBox(
                         height: 20,
                       ),
                       ReusablePTitle(title: "Password"),
                       ReusableTextField(
-                          "Enter password",
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.remove_red_eye_outlined),
-                          ),
-                          passwordController),
+                        title: "Enter password",
+                        suffixIcon: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(Icons.remove_red_eye_outlined),
+                        ),
+                        textEditingController: passwordController,
+                      ),
                       Row(
                         children: [
                           Checkbox(value: newValue, onChanged: (newValue) {}),
@@ -79,6 +81,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ReusableTextButtonL(
                         title: "Login",
+                        color: Colors.white,
                         onPressed: () {
                           Get.to(() => DashboardScreen());
                         },
