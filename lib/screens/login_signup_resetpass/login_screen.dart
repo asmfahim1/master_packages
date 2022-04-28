@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:master_package/constants/constants.dart';
 import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
@@ -33,7 +32,7 @@ class LoginScreen extends StatelessWidget {
           CircularContainer(),
           Expanded(
             child: Container(
-              color: Color(0xFF28706F),
+              color: kDeepGreen,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
