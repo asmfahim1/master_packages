@@ -1,27 +1,59 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
 import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
+import '../../models/login/login_model.dart';
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 import '../../widgets/ReusableTextField.dart';
 import '../../widgets/ReusableTitleText.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({
     Key? key,
   }) : super(key: key);
 
+  static const bool newValue = true;
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
   final GlobalKey<FormState> _fromKey = GlobalKey();
 
-  static const bool newValue = true;
+  // post method a kono model class create korte hoy na.
+  postMethod() async {
+    var response =
+        await http.post(Uri.parse('https://pharmacy.brotherdev.com/login.php'),
+            body: jsonEncode(<String, String>{
+              "email": emailController.text,
+            }));
+    debugPrint(response.body);
+    data = loginModelFromJson(response.body);
+    debugPrint(data.email);
+    debugPrint(passwordController.text.toString());
+    debugPrint(emailController.text.toString());
+    if (response.statusCode == 200 &&
+        data.password == passwordController.text.toString()) {
+      Get.to(() => DashboardScreen());
+    } else {
+      Get.snackbar("Error", "Credential not matched");
+    }
+  }
+
+  late LoginModel data;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +104,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Checkbox(value: newValue, onChanged: (newValue) {}),
-                          Text(
+                          Checkbox(
+                              value: LoginScreen.newValue,
+                              onChanged: (newValue) {
+                                newValue != newValue!;
+                              }),
+                          const Text(
                             "Keep me logged in",
+                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
@@ -82,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                         title: "Login",
                         color: Colors.white,
                         onPressed: () {
-                          Get.to(() => DashboardScreen());
+                          postMethod();
                         },
                       ),
                       SizedBox(
