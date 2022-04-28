@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:master_package/screens/ambulance/ambulance_main_screen.dart';
 import 'package:master_package/screens/doctors/doctors_main_screen.dart';
 import 'package:master_package/screens/drugs/drus_main_screen.dart';
 import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
+import 'package:master_package/screens/nurse/nurse_care_main_screen.dart';
 import 'package:master_package/screens/pharmacy/pharmacy_main_screen.dart';
 
 import '../constants/constants.dart';
-import '../widgets/ReusableHeadlineText.dart';
 import '../widgets/dashboard_textbutton.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,6 +21,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kDeepGreen,
+        // titleSpacing: 80.0,
+        title: Center(
+            child: Text(
+          'Hello Pharmacy',
+          style: TextStyle(fontSize: 30),
+        )),
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () {},
@@ -42,39 +49,9 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 275,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
-              child: Column(
-                children: [
-                  ReusableHeadlineText(headLineName: "WELCOME"),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const Text(
-                    "Md. Ahsanul Haque Mridha",
-                    style: TextStyle(fontSize: 25, color: Colors.white),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search for medicines, doctors, hospitals",
-                        filled: true,
-                        hoverColor: Color(0xFF28706F),
-                        fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.search_outlined),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            height: 219,
+            child: Container(
+              decoration: BoxDecoration(color: kDeepGreen),
             ),
           ),
           Expanded(
@@ -86,38 +63,42 @@ class HomeScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 2, right: 2, top: 25, bottom: 0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        DashboardTextButton(
-                          onPress: () {
-                            debugPrint("drugs pressed");
-                            Get.to(() => const DrugMainScreen());
-                          },
-                          // iconData: Icons.shop_two_sharp,
-                          image: 'images/drugs.jpg',
-                          headlineText: "Drugs",
-                          normalText: "     Look for drugs by types     ",
-                        ),
-                        DashboardTextButton(
-                          onPress: () {
-                            debugPrint("doctors pressed");
-                            Get.to(() => const DoctorMScreen());
-                          },
-                          // iconData: Icons.person_outline,
-                          image: 'images/doctors.jpg',
-                          headlineText: "Doctors",
-                          normalText: "       Look for best doctors       ",
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: Row(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 2, right: 2, top: 25, bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("drugs pressed");
+                              Get.to(() => const DrugMainScreen());
+                            },
+                            // iconData: Icons.shop_two_sharp,
+                            image: 'images/drugs.jpg',
+                            headlineText: "Drugs",
+                            normalText: "     Look for drugs by types     ",
+                          ),
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("doctors pressed");
+                              Get.to(() => const DoctorMScreen());
+                            },
+                            // iconData: Icons.person_outline,
+                            image: 'images/doctors.jpg',
+                            headlineText: "Doctors",
+                            normalText: "       Look for best doctors       ",
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           DashboardTextButton(
@@ -142,8 +123,36 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("ambulance pressed");
+                              Get.to(() => const AmbulanceScreen());
+                            },
+                            // iconData: Icons.local_pharmacy_outlined,
+                            image: 'images/ambulance.png',
+                            headlineText: "Ambulance",
+                            normalText: " Look for ambulance ",
+                          ),
+                          DashboardTextButton(
+                            onPress: () {
+                              debugPrint("nurse_care pressed");
+                              Get.to(() => const NurseCareScreen());
+                            },
+                            // iconData: Icons.local_hospital_outlined,
+                            image: 'images/nurse_care.png',
+                            headlineText: "Nurse-care",
+                            normalText: "   Look for Nurse-care  ",
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
