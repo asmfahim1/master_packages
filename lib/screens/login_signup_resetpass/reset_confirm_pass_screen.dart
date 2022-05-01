@@ -52,7 +52,7 @@ class ResetConfirmPassScreen extends StatelessWidget {
                         ),
                         ReusablePTitle(title: "Password"),
                         ReusableTextField(
-                            title: "Enter password",
+                            hintText: "Enter password",
                             suffixIcon: Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Icon(Icons.remove_red_eye_outlined),
@@ -60,7 +60,7 @@ class ResetConfirmPassScreen extends StatelessWidget {
                             textEditingController: passwordController),
                         SizedBox(height: 20),
                         ReusableTextField(
-                            title: "Confirm password",
+                            hintText: "Confirm password",
                             textEditingController: confPasswordController),
                         SizedBox(height: 20),
                         ReusableTextButtonL(

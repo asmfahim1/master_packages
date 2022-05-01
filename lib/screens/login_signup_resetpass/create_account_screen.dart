@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/widgets/ReusablePasswordField.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 import 'package:master_package/widgets/ReusableTitleText.dart';
 
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
+import '../../widgets/ReusableTextfieldPassword.dart';
 import 'login_screen.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -88,7 +88,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           title: "Name",
                         ),
                         ReusableTextField(
-                            title: "Enter your username",
+                            hintText: "Enter your username",
                             textEditingController: userNameController),
                         SizedBox(
                           height: 20,
@@ -98,7 +98,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         ),
                         ReusableTextField(
                             prefixIcon: const Icon(Icons.email_outlined),
-                            title: "Enter your email",
+                            hintText: "Enter your email",
                             textEditingController: emailController),
                         const SizedBox(
                           height: 20,
@@ -107,14 +107,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           title: "Password",
                         ),
                         ReusableTextfieldPassword(
-                            title: "Enter password",
-                            textEditingController: passwordController),
+                          hintText: 'Enter password',
+                          textEditingController: passwordController,
+                        ),
                         const SizedBox(
                           height: 20,
                         ),
                         ReusableTextfieldPassword(
-                            title: "  Confirm password",
-                            textEditingController: confPasswordController),
+                          textEditingController: confPasswordController,
+                          hintText: 'Confirm password',
+                        ),
                         const SizedBox(
                           height: 20,
                         ),

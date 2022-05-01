@@ -62,7 +62,7 @@ class ResetPassScreen extends StatelessWidget {
                             height: 50,
                             child: ReusableTextField(
                                 prefixIcon: Icon(Icons.email_outlined),
-                                title: "Enter your email",
+                                hintText: "Enter your email",
                                 textEditingController: emailController),
                           ),
                           const SizedBox(

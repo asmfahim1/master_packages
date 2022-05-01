@@ -106,7 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                           children: [
                             ReusableTextField(
-                                title: "Enter name",
+                                hintText: "Enter name",
                                 labelText: "Name",
                                 prefixIcon: const Icon(Icons.person_outline),
                                 suffixIcon: const Icon(Icons.edit),
@@ -115,7 +115,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 15,
                             ),
                             ReusableTextField(
-                              title: "Enter contact number",
+                              hintText: "Enter contact number",
                               labelText: "Contact",
                               prefixIcon: const Icon(Icons.phone),
                               suffixIcon: const Icon(Icons.edit),
@@ -125,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 15,
                             ),
                             ReusableTextField(
-                                title: "Enter email",
+                                hintText: "Enter email",
                                 labelText: "Email",
                                 prefixIcon: const Icon(Icons.email_outlined),
                                 suffixIcon: const Icon(Icons.edit),
@@ -134,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 15,
                             ),
                             ReusableTextField(
-                                title: "Enter address",
+                                hintText: "Enter address",
                                 labelText: "Address",
                                 prefixIcon: const Icon(Icons.home_outlined),
                                 suffixIcon: const Icon(Icons.edit),
