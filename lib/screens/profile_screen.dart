@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 200),
                     child: Container(
-                      height: 220,
+                      height: 200,
                       decoration: const BoxDecoration(
                           color: kBackColor,
                           borderRadius: BorderRadius.only(
@@ -74,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 155,
+                    top: 140,
                     left: 130,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(180.0),
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 218,
+                    top: 200,
                     left: 210,
                     child: CircleAvatar(
                       backgroundColor: Colors.black,
@@ -99,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     padding: const EdgeInsets.only(top: 270),
                     child: Container(
                       color: kDeepGreen,
-                      height: 446,
+                      height: 555,
                       child: Padding(
                         padding:
                             const EdgeInsets.only(left: 10, right: 10, top: 20),
@@ -107,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             ReusableTextField(
                                 hintText: "Enter name",
-                                labelText: "Name",
+                                // labelText: "Name",
                                 prefixIcon: const Icon(Icons.person_outline),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: nameController),
@@ -116,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             ReusableTextField(
                               hintText: "Enter contact number",
-                              labelText: "Contact",
+                              // labelText: "Contact",
                               prefixIcon: const Icon(Icons.phone),
                               suffixIcon: const Icon(Icons.edit),
                               textEditingController: phoneController,
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             ReusableTextField(
                                 hintText: "Enter email",
-                                labelText: "Email",
+                                // labelText: "Email",
                                 prefixIcon: const Icon(Icons.email_outlined),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: emailController),
@@ -135,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             ReusableTextField(
                                 hintText: "Enter address",
-                                labelText: "Address",
+                                // labelText: "Address",
                                 prefixIcon: const Icon(Icons.home_outlined),
                                 suffixIcon: const Icon(Icons.edit),
                                 textEditingController: addressController),
