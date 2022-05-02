@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
+import 'package:master_package/screens/login_signup_resetpass/reset_confirm_pass_screen.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 import 'package:master_package/widgets/ReusableTitleText.dart';
@@ -12,6 +13,8 @@ class ResetPassScreen extends StatelessWidget {
   ResetPassScreen({Key? key}) : super(key: key);
 
   TextEditingController emailController = TextEditingController();
+
+  final GlobalKey<FormState> _fromKey1 = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +61,24 @@ class ResetPassScreen extends StatelessWidget {
                             height: 40,
                           ),
                           ReusablePTitle(title: "Email"),
-                          ReusableTextField(
-                              prefixIcon: Icon(Icons.email_outlined),
+                          Form(
+                            key: _fromKey1,
+                            child: ReusableTextField(
+                              validator: (value) {
+                                if (value!.isNotEmpty && value.length > 3) {
+                                  return null;
+                                } else if (value.isNotEmpty &&
+                                    value.length < 3) {
+                                  return 'invalid email';
+                                } else {
+                                  return 'field can not be empty';
+                                }
+                              },
+                              textEditingController: emailController,
+                              prefixIcon: const Icon(Icons.email_outlined),
                               hintText: "Enter your email",
-                              textEditingController: emailController),
+                            ),
+                          ),
                           const SizedBox(
                             height: 40,
                           ),
@@ -69,7 +86,16 @@ class ResetPassScreen extends StatelessWidget {
                             title: "Send email",
                             color: Colors.white,
                             onPressed: () {
-                              debugPrint("Send button pressed");
+                              if (_fromKey1.currentState!.validate()) {
+                                Get.snackbar(
+                                  'Confirmation mail',
+                                  'An email has sent to your account',
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: Colors.white,
+                                );
+                                debugPrint('Send email button pressed');
+                                Get.to(() => ResetConfirmPassScreen());
+                              }
                             },
                           ),
                         ],

@@ -205,6 +205,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                         signupMethod();
                                         Get.snackbar('Successful',
                                             'Successfully signed up');
+                                        debugPrint("signup button pressed");
+                                        Get.to(() => LoginScreen());
                                       } else {
                                         Get.snackbar(
                                           "Error",
@@ -214,8 +216,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                           backgroundColor: Colors.red,
                                         );
                                       }
-                                      debugPrint("signup button pressed");
-                                      Get.to(() => LoginScreen());
                                     }
                                   }
                                 }
