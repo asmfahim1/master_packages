@@ -87,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (isChecked!) {
       box.put('email', emailController.text);
       box.put('password', passwordController.text);
+      Get.to(() => DashboardScreen());
     }
   }
 
