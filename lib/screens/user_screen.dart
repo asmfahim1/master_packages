@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
@@ -21,7 +20,7 @@ class _UserScreenState extends State<UserScreen> {
           children: [
             TextButton(
               onPressed: () {
-                Get.to(() => LoginScreen());
+                Get.offNamed('/login', arguments: false);
               },
               child: Container(
                 height: 30,
@@ -35,7 +34,7 @@ class _UserScreenState extends State<UserScreen> {
             ),
             TextButton(
               onPressed: () {
-                Get.to(() => LoginScreen());
+                Get.offNamed('/login');
               },
               child: Container(
                 height: 30,
