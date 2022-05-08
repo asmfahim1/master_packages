@@ -83,7 +83,11 @@ class ResetPassScreen extends StatelessWidget {
                             height: 40,
                           ),
                           ReusableTextButtonL(
-                            title: "Send email",
+                            text: Text(
+                              "Done",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.black),
+                            ),
                             color: Colors.white,
                             onPressed: () {
                               if (_fromKey1.currentState!.validate()) {

@@ -2,7 +2,7 @@
     package="com.example.master_package">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="master_package"
+        android:label="Hello pharmacy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

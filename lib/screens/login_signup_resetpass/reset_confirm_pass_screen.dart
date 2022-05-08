@@ -122,7 +122,11 @@ class _ResetConfirmPassScreenState extends State<ResetConfirmPassScreen> {
                             )),
                         SizedBox(height: 20),
                         ReusableTextButtonL(
-                            title: "Done",
+                            text: Text(
+                              "Done",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.black),
+                            ),
                             color: Colors.white,
                             onPressed: () {
                               if (_fromKey1.currentState!.validate() &&
