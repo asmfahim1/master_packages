@@ -192,7 +192,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           height: 20,
                         ),
                         ReusableTextButtonL(
-                            title: "Sign up",
+                            text: Text(
+                              "Signup",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.black),
+                            ),
                             color: Colors.white,
                             onPressed: () {
                               if (_fromKey1.currentState!.validate()) {

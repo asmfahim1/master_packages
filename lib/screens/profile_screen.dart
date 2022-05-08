@@ -143,7 +143,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 40,
                             ),
                             ReusableTextButtonL(
-                              title: "Save",
+                              text: Text(
+                                "Save",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                              ),
                               onPressed: () {},
                               color: Colors.white,
                             ),
@@ -151,7 +155,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 20,
                             ),
                             ReusableTextButtonL(
-                              title: "Cancel",
+                              text: Text(
+                                "Save",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                              ),
                               onPressed: () {},
                               color: kBackColor,
                             ),

@@ -91,6 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  //login circular progress
+  bool isLoading = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -211,7 +214,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       ReusableTextButtonL(
-                        title: "Login",
+                        text: isLoading
+                            ? CircularProgressIndicator()
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                              ),
                         color: Colors.white,
                         onPressed: () {
                           debugPrint('button pressed1');
