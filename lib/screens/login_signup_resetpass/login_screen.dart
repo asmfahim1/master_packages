@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/dashboard_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
@@ -48,8 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
     debugPrint(passwordController.text.toString());
     debugPrint(emailController.text.toString());
     if (response.statusCode == 200 &&
+        data.email == emailController.text.toString() &&
         data.password == passwordController.text.toString()) {
-      Get.to(() => DashboardScreen());
+      Get.snackbar('Success', 'login Successful');
+      Get.offAllNamed('/dashboard');
     } else {
       Get.snackbar("Error", "Credential not matched");
     }
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (isChecked!) {
       box.put('email', emailController.text);
       box.put('password', passwordController.text);
-      Get.to(() => DashboardScreen());
+      Get.offAllNamed('/dashboard');
     }
   }
 
@@ -219,7 +219,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (_fromKey.currentState!.validate()) {
                               if (_fromKey1.currentState!.validate()) {
                                 postMethod();
-                                Get.snackbar('Success', 'login Successful');
                                 debugPrint('button pressed2');
                               }
                             }
@@ -249,7 +248,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   TextStyle(color: Colors.blue, fontSize: 18),
                             ),
                             onTap: () {
-                              Get.to(CreateAccountScreen());
+                              Get.toNamed('/create_acc');
                             },
                           )
                         ],
