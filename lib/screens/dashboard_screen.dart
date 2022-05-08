@@ -1,4 +1,7 @@
+import 'dart:io' show Platform, exit;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
 import 'package:master_package/screens/home_screen.dart';
@@ -58,12 +61,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
           actions: [
             TextButton(
                 onPressed: () {
-                  Get.back(closeOverlays: false, canPop: true);
+                  Get.back();
                 },
                 child: Text("No")),
             TextButton(
                 onPressed: () {
-                  Get.back(closeOverlays: false, canPop: true);
+                  if (Platform.isAndroid) {
+                    SystemNavigator.pop();
+                  } else if (Platform.isIOS) {
+                    exit(0);
+                  }
                 },
                 child: Text("Yes")),
           ],
