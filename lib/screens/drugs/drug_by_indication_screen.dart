@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:master_package/models/drug_by_indication_model.dart';
+import 'package:master_package/models/medicine/drug_by_indication_model.dart';
 
 import '../../controller/drugsController.dart';
 

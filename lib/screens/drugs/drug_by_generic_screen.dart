@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/drugsController.dart';
-import 'package:master_package/models/drug_by_generic_model.dart';
+import 'package:master_package/models/medicine/drug_by_generic_model.dart';
 
 class DrugByGenericScreen extends StatelessWidget {
   const DrugByGenericScreen({Key? key}) : super(key: key);
