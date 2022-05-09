@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:master_package/models/hospital_model.dart';
+import 'package:master_package/models/hospital/hospital_model.dart';
 
 class HosController extends GetxController {
   var hsptl = {}.obs;

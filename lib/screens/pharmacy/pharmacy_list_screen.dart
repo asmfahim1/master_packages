@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/pharmaController.dart';
-import 'package:master_package/models/pharmacies_model.dart';
+import 'package:master_package/models/pharmacy/pharmacies_model.dart';
 
 class PharmacyListS extends StatelessWidget {
   const PharmacyListS({Key? key}) : super(key: key);

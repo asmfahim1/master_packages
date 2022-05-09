@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:master_package/models/docs_model.dart';
+import 'package:master_package/models/doctor/docs_model.dart';
 
 class DocController extends GetxController {
   var dctr = {}.obs;

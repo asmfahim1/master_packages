@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:master_package/models/pharmacies_model.dart';
+import 'package:master_package/models/pharmacy/pharmacies_model.dart';
 
 class PharmaController extends GetxController {
   var pharma = {}.obs;

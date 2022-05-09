@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/hospController.dart';
-import 'package:master_package/models/hospital_model.dart';
+import 'package:master_package/models/hospital/hospital_model.dart';
 
 class HospitalListScreen extends StatelessWidget {
   const HospitalListScreen({Key? key}) : super(key: key);
