@@ -21,8 +21,8 @@ class DashboardTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160,
-      width: 160,
+      height: 140,
+      width: 158,
       child: TextButton(
         onPressed: onPress,
         style: TextButton.styleFrom(

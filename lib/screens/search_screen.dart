@@ -12,7 +12,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("SEARCH"),
+        child: Text("Search History"),
       ),
     );
   }

@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 219,
+            height: 250,
             child: Container(
               decoration: BoxDecoration(color: kDeepGreen),
             ),
