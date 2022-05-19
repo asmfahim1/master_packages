@@ -19,6 +19,7 @@ class DrugByIndicationScreen extends StatelessWidget {
 }
 
 class DrugByGenericCard extends StatelessWidget {
+  // final DrugController drugController = Get.put(DrugController());
   final DrugController drugController = Get.put(DrugController());
   final int index;
   DrugByGenericCard({Key? key, required this.index}) : super(key: key);
