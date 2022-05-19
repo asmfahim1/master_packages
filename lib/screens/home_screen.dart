@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 250,
+            height: 270,
             child: Container(
               decoration: BoxDecoration(color: kDeepGreen),
             ),
@@ -59,14 +59,13 @@ class HomeScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: kBackColor,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0),
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
                 ),
               ),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 2, right: 2, top: 25, bottom: 10),
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

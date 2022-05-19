@@ -1,15 +1,17 @@
 // To parse this JSON data, do
 //
-//     final docModel = docModelFromJson(jsonString);
+//     final doctorModel = doctorModelFromJson(jsonString);
 
 import 'dart:convert';
 
-DocModel docModelFromJson(String str) => DocModel.fromJson(json.decode(str));
+List<DoctorModel> doctorModelFromJson(String str) => List<DoctorModel>.from(
+    json.decode(str).map((x) => DoctorModel.fromJson(x)));
 
-String docModelToJson(DocModel data) => json.encode(data.toJson());
+String doctorModelToJson(List<DoctorModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class DocModel {
-  DocModel({
+class DoctorModel {
+  DoctorModel({
     required this.id,
     required this.image,
     required this.name,
@@ -25,21 +27,21 @@ class DocModel {
   String chameber;
   int v;
 
-  factory DocModel.fromJson(Map<String, dynamic> json) => DocModel(
-    id: json["_id"],
-    image: json["image"],
-    name: json["name"],
-    designation: json["designation"],
-    chameber: json["chameber"],
-    v: json["__v"],
-  );
+  factory DoctorModel.fromJson(Map<String, dynamic> json) => DoctorModel(
+        id: json["_id"],
+        image: json["image"],
+        name: json["name"],
+        designation: json["designation"],
+        chameber: json["chameber"],
+        v: json["__v"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "_id": id,
-    "image": image,
-    "name": name,
-    "designation": designation,
-    "chameber": chameber,
-    "__v": v,
-  };
+        "_id": id,
+        "image": image,
+        "name": name,
+        "designation": designation,
+        "chameber": chameber,
+        "__v": v,
+      };
 }
