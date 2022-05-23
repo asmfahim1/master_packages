@@ -4,9 +4,13 @@
 
 import 'dart:convert';
 
-MedModel medModelFromJson(String str) => MedModel.fromJson(json.decode(str));
+import 'package:get/get.dart';
 
-String medModelToJson(MedModel data) => json.encode(data.toJson());
+List<MedModel> medModelFromJson(String str) =>
+    List<MedModel>.from(json.decode(str).map((x) => MedModel.fromJson(x)));
+
+String medModelToJson(List<MedModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class MedModel {
   MedModel({
@@ -18,10 +22,10 @@ class MedModel {
     required this.v,
   });
 
-  dynamic id;
-  dynamic image;
-  dynamic name;
-  dynamic description;
+  String id;
+  String image;
+  String name;
+  String description;
   int price;
   int v;
 
@@ -33,6 +37,8 @@ class MedModel {
         price: json["price"],
         v: json["__v"],
       );
+
+  var isFavorite = false.obs;
 
   Map<String, dynamic> toJson() => {
         "_id": id,
