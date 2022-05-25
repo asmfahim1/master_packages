@@ -1,16 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/drugsController.dart';
-import 'package:master_package/models/medicine/drug_by_generic_model.dart';
+
+import 'med_tile.dart';
 
 class DrugByGenericScreen extends StatelessWidget {
-  const DrugByGenericScreen({Key? key}) : super(key: key);
+  DrugByGenericScreen({Key? key}) : super(key: key);
+
+  DrugController drugController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: DrugsByGeneric.drugs.length,
+        itemCount: drugController.medList.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
               color: Colors.white, child: DrugByGenericCard(index: index));
@@ -26,28 +30,30 @@ class DrugByGenericCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: 26,
-            child: Text(
-              DrugsByGeneric.drugs[index].dImage,
-              style: TextStyle(fontSize: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Column(
+          children: [
+            Expanded(
+              child: Obx(() {
+                if (drugController.isLoading.value) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return StaggeredGridView.countBuilder(
+                    crossAxisCount: 2,
+                    itemCount: drugController.medList.length,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    itemBuilder: (context, index) {
+                      return DrugTile(
+                        medModel: drugController.medList[index],
+                      );
+                    },
+                    staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+                  );
+                }
+              }),
             ),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-              child: Text(
-            DrugsByGeneric.drugs[index].drugName,
-            style: TextStyle(fontSize: 17),
-          ))
-        ],
-      ),
-    );
+          ],
+        ));
   }
 }

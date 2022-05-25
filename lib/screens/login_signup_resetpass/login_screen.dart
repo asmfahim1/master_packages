@@ -45,6 +45,13 @@ class _LoginScreenState extends State<LoginScreen> {
     debugPrint(data.email);
     debugPrint(passwordController.text.toString());
     debugPrint(emailController.text.toString());
+    if (response.body == "no data found") {
+      Get.snackbar(
+        'Success',
+        'login nai',
+        backgroundColor: Colors.white,
+      );
+    }
     if (response.statusCode == 200 &&
         data.email == emailController.text.toString() &&
         data.password == passwordController.text.toString()) {

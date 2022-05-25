@@ -68,10 +68,12 @@ class MedScreen extends StatelessWidget {
                 return StaggeredGridView.countBuilder(
                   crossAxisCount: 2,
                   itemCount: drugController.medList.length,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
                   itemBuilder: (context, index) {
-                    return DrugTile(drugController.medList[index]);
+                    return DrugTile(
+                      medModel: drugController.medList[index],
+                    );
                   },
                   staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                 );

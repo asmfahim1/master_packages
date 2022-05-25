@@ -4,8 +4,6 @@
 
 import 'dart:convert';
 
-import 'package:get/get.dart';
-
 List<MedModel> medModelFromJson(String str) =>
     List<MedModel>.from(json.decode(str).map((x) => MedModel.fromJson(x)));
 
@@ -14,38 +12,32 @@ String medModelToJson(List<MedModel> data) =>
 
 class MedModel {
   MedModel({
-    required this.id,
-    required this.image,
-    required this.name,
-    required this.description,
-    required this.price,
-    required this.v,
+    this.albumId,
+    this.id,
+    this.title,
+    this.url,
+    this.thumbnailUrl,
   });
 
-  String id;
-  String image;
-  String name;
-  String description;
-  int price;
-  int v;
+  int? albumId;
+  int? id;
+  String? title;
+  String? url;
+  String? thumbnailUrl;
 
   factory MedModel.fromJson(Map<String, dynamic> json) => MedModel(
-        id: json["_id"],
-        image: json["image"],
-        name: json["name"],
-        description: json["description"],
-        price: json["price"],
-        v: json["__v"],
+        albumId: json["albumId"],
+        id: json["id"],
+        title: json["title"],
+        url: json["url"],
+        thumbnailUrl: json["thumbnailUrl"],
       );
 
-  var isFavorite = false.obs;
-
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "image": image,
-        "name": name,
-        "description": description,
-        "price": price,
-        "__v": v,
+        "albumId": albumId,
+        "id": id,
+        "title": title,
+        "url": url,
+        "thumbnailUrl": thumbnailUrl,
       };
 }

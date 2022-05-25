@@ -3,12 +3,15 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
+import 'package:master_package/controller/drugsController.dart';
 import 'package:master_package/screens/drugs/drug_by_generic_screen.dart';
 import 'package:master_package/screens/drugs/drug_by_indication_screen.dart';
 import 'package:master_package/screens/profile_screen.dart';
 
 class DrugMainScreen extends StatefulWidget {
-  const DrugMainScreen({Key? key}) : super(key: key);
+  DrugMainScreen({Key? key}) : super(key: key);
+
+  DrugController drugController = Get.put(DrugController());
 
   @override
   State<DrugMainScreen> createState() => _DrugMainScreenState();
@@ -85,7 +88,7 @@ class _DrugMainScreenState extends State<DrugMainScreen> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             DrugByIndicationScreen(),
             DrugByGenericScreen(),

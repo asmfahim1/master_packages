@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:master_package/screens/ambulance/ambulance_main_screen.dart';
 import 'package:master_package/screens/doctors/doctors_main_screen.dart';
-import 'package:master_package/screens/drugs/drug_test_screen.dart';
 import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
 import 'package:master_package/screens/nurse/nurse_care_main_screen.dart';
@@ -12,6 +11,7 @@ import 'package:master_package/screens/pharmacy/pharmacy_main_screen.dart';
 
 import '../constants/constants.dart';
 import '../widgets/dashboard_textbutton.dart';
+import 'drugs/drus_main_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("drugs pressed");
-                              Get.to(() => MedScreen());
+                              Get.to(() => DrugMainScreen());
                             },
                             // iconData: Icons.shop_two_sharp,
                             image: 'images/drugs.jpg',

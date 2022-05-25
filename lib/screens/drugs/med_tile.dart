@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:master_package/models/medicine/med_model.dart';
 
 import '../../models/medicine/med_model.dart';
 
 class DrugTile extends StatelessWidget {
-  final MedModel medModel;
-  const DrugTile(this.medModel);
+  const DrugTile({
+    Key? key,
+    this.albumId,
+    this.id,
+    this.title,
+    this.url,
+    this.thumbnailUrl,
+    this.medModel,
+  }) : super(key: key);
+
+  final int? id;
+  final int? albumId;
+  final String? title;
+  final String? url;
+  final String? thumbnailUrl;
+  final MedModel? medModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,67 +40,31 @@ class DrugTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Image.network(
-                    medModel.image,
+                    medModel!.url.toString(),
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
-                  right: 0,
-                  child: Obx(() => CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          icon: medModel.isFavorite.value
-                              ? Icon(Icons.favorite_rounded)
-                              : Icon(Icons.favorite_border),
-                          onPressed: () {
-                            medModel.isFavorite.toggle();
-                          },
-                        ),
-                      )),
-                )
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 5),
             Text(
-              medModel.name,
+              'Id: ' "${medModel!.id.toString()}",
               maxLines: 2,
               style:
                   TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w800),
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 5),
             Text(
-              medModel.description,
+              'Title: ' "${medModel!.title}",
               maxLines: 2,
               style:
                   TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w800),
               overflow: TextOverflow.ellipsis,
             ),
-            // if (medModel.rating != null)
-            //   Container(
-            //     decoration: BoxDecoration(
-            //       color: Colors.green,
-            //       borderRadius: BorderRadius.circular(12),
-            //     ),
-            //     padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-            //     child: Row(
-            //       mainAxisSize: MainAxisSize.min,
-            //       children: [
-            //         Text(
-            //           medModel.rating.toString(),
-            //           style: TextStyle(color: Colors.white),
-            //         ),
-            //         Icon(
-            //           Icons.star,
-            //           size: 16,
-            //           color: Colors.white,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            SizedBox(height: 8),
-            Text('\$${medModel.price}',
-                style: TextStyle(fontSize: 32, fontFamily: 'avenir')),
+            SizedBox(height: 5),
+            // Text('Thumbnail: ' '${medModel!.thumbnailUrl}',
+            //     style: TextStyle(fontSize: 10, fontFamily: 'avenir')),
           ],
         ),
       ),

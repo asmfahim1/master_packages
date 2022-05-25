@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
 import 'package:master_package/models/medicine/drug_by_generic_model.dart';
+import 'package:master_package/models/medicine/med_model.dart';
 import 'package:master_package/services/medicine_api.dart';
 
 class DrugController extends GetxController {
-  var _drugs = {}.obs;
-  var medList = {}.obs;
+  //,ost important line for not getting error
+  var medList = <MedModel>[].obs;
   var isLoading = true.obs;
 
   int get count => DrugsByGeneric.drugs.length;
@@ -19,14 +20,12 @@ class DrugController extends GetxController {
     super.onInit();
   }
 
-  //fetching from amaz's api
+  // fetching from amaz's api
   void fetchDrug() async {
     try {
       isLoading(true);
-      var drugs = await MedicineAPI().medicineGetAPI();
-      if (drugs != null) {
-        medList.value = drugs as Map;
-      }
+      List<MedModel> drugs = await MedicineAPI().medicineGetAPI();
+      medList.assignAll(drugs);
     } finally {
       isLoading(false);
     }

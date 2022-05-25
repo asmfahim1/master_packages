@@ -1,28 +1,34 @@
-import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart';
 
 import '../models/medicine/med_model.dart';
 
 class MedicineAPI {
-  Future<List<MedModel>?> medicineGetAPI() async {
-    Response response = await get(Uri.parse(
-        'https://medicine-api-doc.herokuapp.com/api/v1/get/medicine'));
-    if (response.statusCode == 200) {
-      // var jsonString = response.body;
-      final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-      return parsed.map<MedModel>((json) => MedModel.fromJson(json)).toList();
-      // debugPrint(jsonString);
-      // debugPrint('pressed');
-      // return medModelFromJson(jsonString);
-    } else {
-      return null;
-    }
+  Future<List<MedModel>> medicineGetAPI() async {
+    var response =
+        await get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
+    print('----------------------------');
+    log(response.body);
+    print('----------------------------');
+    return medModelFromJson(response.body);
   }
 }
 
-///Query param
-/// 'get-order-detail?shop_id=$shopId&order_id=$orderId&recipient_mobile_number=$mobileNumber'
-// headers: {
-//   HttpHeaders.authorizationHeader: 'Bearer ' + token!,
-// },
+// //http.client
+// class RemoteService {
+//   static var client = http.Client();
+//
+//   static Future<List<MedModel>?> fetchProducts() async {
+//     var response = await client.get(Uri.parse(
+//         'https://medicine-api-doc.herokuapp.com/api/v1/get/medicine'));
+//
+//     if (response.statusCode == 200) {
+//       var jsonString = response.body;
+//       return medModelFromJson(jsonString);
+//     } else {
+//       /// Show error message
+//       return null;
+//     }
+//   }
+// }
