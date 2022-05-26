@@ -16,7 +16,7 @@ import '../../widgets/ReusableTextfieldPassword.dart';
 import '../../widgets/ReusableTitleText.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({
+  const LoginScreen({
     Key? key,
   }) : super(key: key);
 
@@ -45,13 +45,30 @@ class _LoginScreenState extends State<LoginScreen> {
     debugPrint(data.email);
     debugPrint(passwordController.text.toString());
     debugPrint(emailController.text.toString());
+    if (response.body == "no data found") {
+      Get.snackbar(
+        'Success',
+        'login nai',
+        backgroundColor: Colors.white,
+      );
+    }
     if (response.statusCode == 200 &&
         data.email == emailController.text.toString() &&
         data.password == passwordController.text.toString()) {
-      Get.snackbar('Success', 'login Successful');
+      Get.snackbar(
+        'Success',
+        'login Successful',
+        backgroundColor: Colors.white,
+      );
       Get.offAllNamed('/dashboard');
     } else {
-      Get.snackbar("Error", "Credential not matched");
+      Get.snackbar(
+        "Error",
+        "Credential not matched",
+        colorText: Colors.red,
+        backgroundColor: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
     }
   }
 
@@ -65,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  //keep me logged in
+  //Remember me
   bool? isChecked = false;
   late Box box;
   createBox() async {
@@ -83,11 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  login() {
+  login() async {
     if (isChecked!) {
       box.put('email', emailController.text);
       box.put('password', passwordController.text);
-      Get.offAllNamed('/dashboard');
     }
   }
 
@@ -185,13 +201,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Row(
                         children: [
-                          Checkbox(
-                              value: isChecked,
-                              onChanged: (value) {
-                                setState(() {
-                                  isChecked = value;
-                                });
-                              }),
+                          Theme(
+                            data: Theme.of(context)
+                                .copyWith(unselectedWidgetColor: Colors.white),
+                            child: Checkbox(
+                                value: isChecked,
+                                activeColor: Colors.white,
+                                checkColor: Colors.black,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isChecked = value;
+                                  });
+                                }),
+                          ),
                           Text(
                             "Remember me",
                             style: TextStyle(color: Colors.white),
@@ -215,11 +237,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       ReusableTextButtonL(
                         text: isLoading
-                            ? CircularProgressIndicator()
-                            : Text(
+                            ? const CircularProgressIndicator()
+                            : const Text(
                                 "Login",
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.black),
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                         color: Colors.white,
                         onPressed: () {
@@ -228,14 +253,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (_fromKey.currentState!.validate()) {
                               if (_fromKey1.currentState!.validate()) {
                                 postMethod();
-                                debugPrint('button pressed2');
+                                login();
                               }
                             }
                           } catch (e) {
                             debugPrint(e.toString());
                           }
-                          debugPrint('button pressed3');
-                          login();
                         },
                       ),
                       SizedBox(

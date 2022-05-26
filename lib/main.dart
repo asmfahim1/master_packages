@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
       ),
       defaultTransition: Transition.zoom,
-      initialRoute: "/",
+      initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => SplashScreen()),
         GetPage(name: '/user', page: () => UserScreen()),

@@ -18,11 +18,11 @@ class LoginModel {
     required this.createdAt,
   });
 
-  String id;
-  String name;
-  String email;
-  String password;
-  DateTime createdAt;
+  dynamic id;
+  dynamic name;
+  dynamic email;
+  dynamic password;
+  dynamic createdAt;
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         id: json["id"],
