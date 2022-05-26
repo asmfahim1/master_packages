@@ -4,7 +4,7 @@ import 'package:master_package/models/medicine/med_model.dart';
 import 'package:master_package/services/medicine_api.dart';
 
 class DrugController extends GetxController {
-  //,ost important line for not getting error
+  //most important line for not getting error
   var medList = <MedModel>[].obs;
   var isLoading = true.obs;
 
@@ -24,7 +24,7 @@ class DrugController extends GetxController {
   void fetchDrug() async {
     try {
       isLoading(true);
-      List<MedModel> drugs = await MedicineAPI().medicineGetAPI();
+      var drugs = await MedicineAPI().medicineGetAPI();
       medList.assignAll(drugs);
     } finally {
       isLoading(false);
