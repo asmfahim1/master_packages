@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:master_package/models/medicine/med_model.dart';
+import 'package:master_package/models/doctor/doc_model.dart';
 
-import '../../models/medicine/med_model.dart';
-
-class DrugTile extends StatelessWidget {
-  const DrugTile({
+class DocTile extends StatelessWidget {
+  const DocTile({
     Key? key,
     this.id,
     this.name,
     this.image,
-    this.description,
-    this.price,
-    this.medModel,
+    this.designation,
+    this.chamber,
+    this.v,
+    this.doctorModel,
   }) : super(key: key);
 
-  final int? id;
-  final String? name;
+  final String? id;
   final String? image;
-  final String? description;
-  final int? price;
-  final MedModel? medModel;
-
+  final String? name;
+  final String? designation;
+  final String? chamber;
+  final int? v;
+  final DoctorModel? doctorModel;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,7 +39,7 @@ class DrugTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Image.network(
-                    medModel!.image.toString(),
+                    doctorModel!.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,12 +47,22 @@ class DrugTile extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              'Name: ' + "${medModel!.name}",
+              'Name : ' + doctorModel!.name,
               maxLines: 2,
               style: TextStyle(
                   fontFamily: 'avenir',
                   fontWeight: FontWeight.w800,
                   fontSize: 15),
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 5),
+            Text(
+              'Designation : ' + doctorModel!.designation,
+              maxLines: 2,
+              style: TextStyle(
+                  fontFamily: 'avenir',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12),
               overflow: TextOverflow.ellipsis,
             ),
           ],

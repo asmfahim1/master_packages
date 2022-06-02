@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:master_package/models/medicine/med_model.dart';
 
-import '../../models/medicine/med_model.dart';
+import '../../models/pharmacy/pharma_model.dart';
 
-class DrugTile extends StatelessWidget {
-  const DrugTile({
+class PharmaTile extends StatelessWidget {
+  const PharmaTile({
     Key? key,
     this.id,
     this.name,
     this.image,
-    this.description,
-    this.price,
-    this.medModel,
+    this.location,
+    this.v,
+    required this.pharmacyModel,
   }) : super(key: key);
 
-  final int? id;
-  final String? name;
+  final String? id;
   final String? image;
-  final String? description;
-  final int? price;
-  final MedModel? medModel;
+  final String? name;
+  final String? location;
+  final PharmacyModel pharmacyModel;
+  final int? v;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class DrugTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Image.network(
-                    medModel!.image.toString(),
+                    "${pharmacyModel.image}",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,12 +47,22 @@ class DrugTile extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              'Name: ' + "${medModel!.name}",
+              'Name : ' + '${pharmacyModel.name}',
               maxLines: 2,
               style: TextStyle(
                   fontFamily: 'avenir',
                   fontWeight: FontWeight.w800,
                   fontSize: 15),
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 5),
+            Text(
+              'Location : ' + '${pharmacyModel.location}',
+              maxLines: 2,
+              style: TextStyle(
+                  fontFamily: 'avenir',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600),
               overflow: TextOverflow.ellipsis,
             ),
           ],

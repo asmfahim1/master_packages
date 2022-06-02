@@ -12,32 +12,36 @@ String medModelToJson(List<MedModel> data) =>
 
 class MedModel {
   MedModel({
-    this.albumId,
     this.id,
-    this.title,
-    this.url,
-    this.thumbnailUrl,
+    this.image,
+    this.name,
+    this.description,
+    this.price,
+    this.v,
   });
 
-  int? albumId;
-  int? id;
-  String? title;
-  String? url;
-  String? thumbnailUrl;
+  String? id;
+  String? image;
+  String? name;
+  String? description;
+  int? price;
+  int? v;
 
   factory MedModel.fromJson(Map<String, dynamic> json) => MedModel(
-        albumId: json["albumId"],
-        id: json["id"],
-        title: json["title"],
-        url: json["url"],
-        thumbnailUrl: json["thumbnailUrl"],
+        id: json["_id"],
+        image: json["image"],
+        name: json["name"],
+        description: json["description"],
+        price: json["price"],
+        v: json["__v"],
       );
 
   Map<String, dynamic> toJson() => {
-        "albumId": albumId,
-        "id": id,
-        "title": title,
-        "url": url,
-        "thumbnailUrl": thumbnailUrl,
+        "_id": id,
+        "image": image,
+        "name": name,
+        "description": description,
+        "price": price,
+        "__v": v,
       };
 }

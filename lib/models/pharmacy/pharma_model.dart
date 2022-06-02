@@ -1,7 +1,6 @@
 // To parse this JSON data, do
 //
 //     final pharmacyModel = pharmacyModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<PharmacyModel> pharmacyModelFromJson(String str) =>
@@ -13,18 +12,18 @@ String pharmacyModelToJson(List<PharmacyModel> data) =>
 
 class PharmacyModel {
   PharmacyModel({
-    required this.id,
-    required this.image,
-    required this.name,
-    required this.location,
-    required this.v,
+    this.id,
+    this.image,
+    this.name,
+    this.location,
+    this.v,
   });
 
-  String id;
-  String image;
-  String name;
-  String location;
-  int v;
+  String? id;
+  String? image;
+  String? name;
+  String? location;
+  int? v;
 
   factory PharmacyModel.fromJson(Map<String, dynamic> json) => PharmacyModel(
         id: json["_id"],
