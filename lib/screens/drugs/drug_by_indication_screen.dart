@@ -6,9 +6,10 @@ import '../../controller/drugsController.dart';
 import 'med_tile.dart';
 
 class DrugByIndicationScreen extends StatelessWidget {
-  DrugByIndicationScreen({Key? key}) : super(key: key);
+  //if you make sure all the variable of your class is final than immutable problem will prevent.
+  final DrugController drugController = Get.find();
 
-  DrugController drugController = Get.find();
+  DrugByIndicationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,12 @@ class DrugByGenericCard extends StatelessWidget {
           Expanded(
             child: Obx(() {
               if (drugController.isLoading.value) {
-                return const Center(child: CircularProgressIndicator());
+                return Center(
+                  child: Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: CircularProgressIndicator(),
+                  ),
+                );
               } else {
                 return StaggeredGridView.countBuilder(
                   crossAxisCount: 2,

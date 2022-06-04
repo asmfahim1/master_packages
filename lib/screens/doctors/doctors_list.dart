@@ -36,10 +36,11 @@ class PharmacyListCard extends StatelessWidget {
         children: [
           Text(DoctorListModel.doctors[index].id.toString() + '. '),
           Expanded(
-              child: Text(
-            DoctorListModel.doctors[index].name,
-            style: const TextStyle(fontSize: 17),
-          ))
+            child: Text(
+              DoctorListModel.doctors[index].name,
+              style: const TextStyle(fontSize: 17),
+            ),
+          )
         ],
       ),
     );

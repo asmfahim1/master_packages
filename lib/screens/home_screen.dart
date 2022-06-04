@@ -1,21 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:master_package/controller/loading_controller.dart';
 import 'package:master_package/screens/ambulance/ambulance_main_screen.dart';
-import 'package:master_package/screens/doctors/doctors_main_screen.dart';
+import 'package:master_package/screens/doctors/doc_test.dart';
 import 'package:master_package/screens/drugs/drug_test_screen.dart';
 import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
 import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
 import 'package:master_package/screens/nurse/nurse_care_main_screen.dart';
-import 'package:master_package/screens/pharmacy/pharmacy_main_screen.dart';
+import 'package:master_package/screens/pharmacy/pharma_test.dart';
 
 import '../constants/constants.dart';
 import '../widgets/dashboard_textbutton.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  LoadingController loadingController = Get.put(LoadingController());
+
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,61 +51,77 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 270,
-            child: CarouselSlider(
-              options: CarouselOptions(
-                height: 170.0,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: true,
-                aspectRatio: 16 / 9,
-                // autoPlayAnimationDuration: Duration(seconds: ),
-                autoPlayCurve: Curves.linear,
-                //height: MediaQuery.of(context).size.height * 0.35,
-                autoPlay: true,
-                reverse: false,
-                autoPlayInterval: Duration(seconds: 3),
-                //pauseAutoPlayOnTouch: Duration(seconds: 10),
-              ),
-              items: [
-                "ACE PLUS",
-                "NAPA EXTRA",
-                "FINIX",
-                "FLEXI 2.5mg",
-                "MD. Ahsanul Haque Hridoy",
-                "Md. Farhan Nasif",
-                "New Product Invented click here to know",
-                "New OT Machine",
-                "MEdical Belt",
-                "Health Care Tips",
-              ].map((items) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.white,
-                      ),
-                      child: GestureDetector(
-                        child: Center(
-                          child: Text(
-                            items,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
+            height: 50,
+          ),
+          Obx(() {
+            if (loadingController.isLoading.value) {
+              return Center(
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            } else {
+              return Container(
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    aspectRatio: 16 / 9,
+                    // autoPlayAnimationDuration: Duration(seconds: ),
+                    autoPlayCurve: Curves.linear,
+                    //height: MediaQuery.of(context).size.height * 0.35,
+                    autoPlay: true,
+                    reverse: false,
+                    autoPlayInterval: Duration(seconds: 3),
+                    //pauseAutoPlayOnTouch: Duration(seconds: 10),
+                  ),
+                  items: [
+                    'https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop',
+                    'https://f.hubspotusercontent10.net/hub/491011/hubfs/pharmacy-background.jpg?length=2000&name=pharmacy-background.jpg',
+                    'https://via.placeholder.com/600/92c952',
+                    'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
+                    'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
+                    'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+                  ].map((items) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 2.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.white,
                           ),
-                        ),
-                        onTap: () {
-                          print("Tapped");
-                        },
-                      ),
+                          child: GestureDetector(
+                            child: Column(
+                              children: [
+                                Text("News for you"),
+                                Expanded(
+                                  child: Center(
+                                    child: Image.network(
+                                      items,
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              debugPrint("Tapped");
+                            },
+                          ),
+                        );
+                      },
                     );
-                  },
-                );
-              }).toList(),
-            ),
+                  }).toList(),
+                ),
+              );
+            }
+          }),
+          SizedBox(
+            height: 50,
           ),
           Expanded(
             child: Container(
@@ -137,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("doctors pressed");
-                              Get.to(() => const DoctorMScreen());
+                              Get.to(() => DocTestScreen());
                             },
                             // iconData: Icons.person_outline,
                             image: 'images/doctors.jpg',
@@ -155,7 +172,7 @@ class HomeScreen extends StatelessWidget {
                           DashboardTextButton(
                             onPress: () {
                               debugPrint("pharmacy pressed");
-                              Get.to(() => const PharmacyScreen());
+                              Get.to(() => PharmaTest());
                             },
                             // iconData: Icons.local_pharmacy_outlined,
                             image: 'images/pharmacy.jpg',
