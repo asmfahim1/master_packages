@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/pharmaController.dart';
-import 'package:master_package/screens/pharmacy/pharma_view.dart';
+import 'package:master_package/views/pharmacy/pharma_view.dart';
 
 class PharmaTest extends StatelessWidget {
   final PharmaController pharmaController = Get.put(PharmaController());

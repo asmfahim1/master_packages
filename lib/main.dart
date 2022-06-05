@@ -2,24 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/ambulance/ambulance_main_screen.dart';
-import 'package:master_package/screens/cart_screen.dart';
-import 'package:master_package/screens/dashboard_screen.dart';
-import 'package:master_package/screens/doctors/doctors_main_screen.dart';
-import 'package:master_package/screens/drugs/drus_main_screen.dart';
-import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/create_account_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/reset_confirm_pass_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
-import 'package:master_package/screens/nurse/nurse_care_main_screen.dart';
-import 'package:master_package/screens/pharmacy/pharmacy_main_screen.dart';
-import 'package:master_package/screens/profile_screen.dart';
-import 'package:master_package/screens/search_screen.dart';
-import 'package:master_package/screens/splash_screen.dart';
-import 'package:master_package/screens/user_screen.dart';
+import 'package:master_package/views/ambulance/ambulance_main_screen.dart';
+import 'package:master_package/views/cart_screen.dart';
+import 'package:master_package/views/dashboard_screen.dart';
+import 'package:master_package/views/doctors/doctors_main_screen.dart';
+import 'package:master_package/views/drugs/drus_main_screen.dart';
+import 'package:master_package/views/hospitals/hospital_main_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/create_account_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/login_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/reset_confirm_pass_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/reset_pass_screen.dart';
+import 'package:master_package/views/nurse/nurse_care_main_screen.dart';
+import 'package:master_package/views/pharmacy/pharmacy_main_screen.dart';
+import 'package:master_package/views/profile_screen.dart';
+import 'package:master_package/views/search_screen.dart';
+import 'package:master_package/views/splash_screen.dart';
+import 'package:master_package/views/user_screen.dart';
+
+import 'init_controller.dart' as di;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.initController();
   Hive.initFlutter();
   runApp(const MyApp());
 }

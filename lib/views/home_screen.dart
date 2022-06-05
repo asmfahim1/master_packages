@@ -2,16 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/loading_controller.dart';
-import 'package:master_package/screens/ambulance/ambulance_main_screen.dart';
-import 'package:master_package/screens/doctors/doc_test.dart';
-import 'package:master_package/screens/drugs/drug_test_screen.dart';
-import 'package:master_package/screens/hospitals/hospital_main_screen.dart';
-import 'package:master_package/screens/login_signup_resetpass/login_screen.dart';
-import 'package:master_package/screens/nurse/nurse_care_main_screen.dart';
-import 'package:master_package/screens/pharmacy/pharma_test.dart';
+import 'package:master_package/views/pharmacy/pharma_test.dart';
 
 import '../constants/constants.dart';
 import '../widgets/dashboard_textbutton.dart';
+import 'ambulance/ambulance_main_screen.dart';
+import 'doctors/doc_test.dart';
+import 'drugs/drug_test_screen.dart';
+import 'hospitals/hospital_main_screen.dart';
+import 'login_signup_resetpass/login_screen.dart';
+import 'nurse/nurse_care_main_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   LoadingController loadingController = Get.put(LoadingController());

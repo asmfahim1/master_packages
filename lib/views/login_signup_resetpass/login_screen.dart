@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/login_signup_resetpass/reset_pass_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
 import '../../models/login/login_model.dart';

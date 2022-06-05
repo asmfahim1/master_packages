@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/home_screen.dart';
-import 'package:master_package/screens/profile_screen.dart';
-import 'package:master_package/screens/search_screen.dart';
+import 'package:master_package/views/profile_screen.dart';
+import 'package:master_package/views/search_screen.dart';
 
 import 'cart_screen.dart';
+import 'home_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);

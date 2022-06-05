@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/dashboard_screen.dart';
 import 'package:master_package/widgets/ReusableHeadlineText.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
+
+import 'dashboard_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -58,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 padding: const EdgeInsets.all(10.0),
                                 child: IconButton(
                                   onPressed: () {
-                                    Get.to(DashboardScreen());
+                                    Get.to(() => DashboardScreen());
                                   },
                                   icon: const Icon(
                                     Icons.done_outline,
