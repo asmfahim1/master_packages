@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 5), () => Get.offNamed('/user'));
+    Timer(const Duration(seconds: 5), () => Get.offNamed('/user'),);
     // TODO: implement initState
     super.initState();
   }
