@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => MedScreen());
                             },
                             // iconData: Icons.shop_two_sharp,
-                            image: 'images/drugs.jpg',
+                            image: 'assets/images/drugs.jpg',
                             headlineText: "Drugs",
                             normalText: "     Look for drugs by types     ",
                           ),
@@ -157,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => DocTestScreen());
                             },
                             // iconData: Icons.person_outline,
-                            image: 'images/doctors.jpg',
+                            image: 'assets/images/doctors.jpg',
                             headlineText: "Doctors",
                             normalText: "       Look for best doctors       ",
                           ),
@@ -175,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => PharmaTest());
                             },
                             // iconData: Icons.local_pharmacy_outlined,
-                            image: 'images/pharmacy.jpg',
+                            image: 'assets/images/pharmacy.jpg',
                             headlineText: "Pharmacy",
                             normalText: " Look for nearby pharmacies ",
                           ),
@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => HospitalMScreen());
                             },
                             // iconData: Icons.local_hospital_outlined,
-                            image: 'images/hospitals.jpg',
+                            image: 'assets/images/hospitals.jpg',
                             headlineText: "Hospitals",
                             normalText: "   Look for nearby hospitals   ",
                           ),
@@ -203,7 +203,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => const AmbulanceScreen());
                             },
                             // iconData: Icons.local_pharmacy_outlined,
-                            image: 'images/ambulance.png',
+                            image: 'assets/images/ambulance.png',
                             headlineText: "Ambulance",
                             normalText: " Look for ambulance ",
                           ),
@@ -213,7 +213,7 @@ class HomeScreen extends StatelessWidget {
                               Get.to(() => const NurseCareScreen());
                             },
                             // iconData: Icons.local_hospital_outlined,
-                            image: 'images/nurse_care.png',
+                            image: 'assets/images/nurse_care.png',
                             headlineText: "Nurse-care",
                             normalText: "   Look for Nurse-care  ",
                           ),

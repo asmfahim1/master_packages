@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 10,
               ),
               Image.asset(
-                "images/loading.gif",
+                "assets/images/loading.gif",
               )
             ],
           ),

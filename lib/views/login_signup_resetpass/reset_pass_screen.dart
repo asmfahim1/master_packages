@@ -85,8 +85,11 @@ class ResetPassScreen extends StatelessWidget {
                           ReusableTextButtonL(
                             text: Text(
                               "Done",
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontFamily: 'Roboto',
+                              ),
                             ),
                             color: Colors.white,
                             onPressed: () {

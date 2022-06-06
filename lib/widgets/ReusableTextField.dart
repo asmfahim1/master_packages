@@ -27,10 +27,16 @@ class ReusableTextField extends StatelessWidget {
         controller: textEditingController,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(
+            color: Colors.grey,
+            fontFamily: 'Roboto',
+          ),
           labelText: labelText,
-          labelStyle:
-              TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+          labelStyle: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Roboto',
+          ),
           fillColor: Colors.white,
           filled: true,
           suffixIcon: suffixIcon,

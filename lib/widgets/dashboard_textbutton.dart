@@ -44,15 +44,18 @@ class DashboardTextButton extends StatelessWidget {
             Text(
               headlineText,
               style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+                color: Colors.black,
+                fontSize: 25,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Text(
               normalText,
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 11,
+                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold),
             )
           ],

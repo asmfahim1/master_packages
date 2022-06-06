@@ -80,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(180.0),
                       child: Image.asset(
-                        "images/profile2.png",
+                        "assets/images/profile2.png",
                         scale: 9,
                       ),
                     ),
@@ -147,7 +147,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               text: Text(
                                 "Save",
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.black),
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontFamily: 'Roboto',
+                                ),
                               ),
                               onPressed: () {},
                               color: Colors.white,
@@ -159,7 +162,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               text: Text(
                                 "Save",
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.black),
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontFamily: 'Roboto',
+                                ),
                               ),
                               onPressed: () {},
                               color: kBackColor,
