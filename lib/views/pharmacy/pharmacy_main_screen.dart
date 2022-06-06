@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/pharmacy/pharmacy_list_screen.dart';
+import 'package:master_package/views/pharmacy/pharmacy_list_screen.dart';
 
 class PharmacyScreen extends StatefulWidget {
   const PharmacyScreen({Key? key}) : super(key: key);

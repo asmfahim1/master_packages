@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:master_package/controller/docController.dart';
-import 'package:master_package/screens/doctors/doc_view.dart';
+
+import 'doc_view.dart';
 
 class DocTestScreen extends StatelessWidget {
   final DocController docController = Get.put(DocController());

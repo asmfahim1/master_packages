@@ -11,6 +11,7 @@ class ReusableHeadlineText extends StatelessWidget {
       style: TextStyle(
         color: Colors.white,
         fontSize: 40,
+        fontFamily: 'Roboto',
         fontWeight: FontWeight.bold,
         // color: Colors.white,
       ),

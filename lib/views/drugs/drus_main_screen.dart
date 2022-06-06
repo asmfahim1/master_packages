@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
 import 'package:master_package/controller/drugsController.dart';
-import 'package:master_package/screens/drugs/drug_by_generic_screen.dart';
-import 'package:master_package/screens/drugs/drug_by_indication_screen.dart';
-import 'package:master_package/screens/profile_screen.dart';
+import 'package:master_package/views/profile_screen.dart';
+
+import 'drug_by_generic_screen.dart';
+import 'drug_by_indication_screen.dart';
 
 class DrugMainScreen extends StatefulWidget {
   DrugMainScreen({Key? key}) : super(key: key);

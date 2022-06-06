@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
-import 'package:master_package/screens/login_signup_resetpass/reset_confirm_pass_screen.dart';
+import 'package:master_package/views/login_signup_resetpass/reset_confirm_pass_screen.dart';
 import 'package:master_package/widgets/CircularWidget.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 import 'package:master_package/widgets/ReusableTitleText.dart';
@@ -85,8 +85,11 @@ class ResetPassScreen extends StatelessWidget {
                           ReusableTextButtonL(
                             text: Text(
                               "Done",
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontFamily: 'Roboto',
+                              ),
                             ),
                             color: Colors.white,
                             onPressed: () {

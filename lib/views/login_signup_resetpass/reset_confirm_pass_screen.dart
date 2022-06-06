@@ -124,8 +124,11 @@ class _ResetConfirmPassScreenState extends State<ResetConfirmPassScreen> {
                         ReusableTextButtonL(
                             text: Text(
                               "Done",
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontFamily: 'Roboto',
+                              ),
                             ),
                             color: Colors.white,
                             onPressed: () {
