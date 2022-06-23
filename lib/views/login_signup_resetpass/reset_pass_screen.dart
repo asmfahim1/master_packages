@@ -25,7 +25,7 @@ class ResetPassScreen extends StatelessWidget {
             children: [
               CircularContainer(
                 iconData: IconButton(
-                  splashColor: kDeepGreen,
+                  splashColor: AppColor.kDeepGreen,
                   onPressed: () {
                     Get.back();
                   },
@@ -38,7 +38,7 @@ class ResetPassScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: kDeepGreen,
+                  color: AppColor.kDeepGreen,
                   child: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),

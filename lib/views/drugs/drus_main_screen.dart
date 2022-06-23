@@ -48,7 +48,7 @@ class _DrugMainScreenState extends State<DrugMainScreen> {
                             const TextStyle(color: Colors.white, fontSize: 15),
                         decoration: const InputDecoration(
                           filled: true,
-                          fillColor: kBackColor,
+                          fillColor: AppColor.kBackColor,
                           hintText: "Search for medicines",
                           hintStyle:
                               TextStyle(color: Colors.white, fontSize: 16),

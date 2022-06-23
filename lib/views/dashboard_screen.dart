@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:master_package/constants/constants.dart';
 import 'package:master_package/views/profile_screen.dart';
 import 'package:master_package/views/search_screen.dart';
-
 import 'cart_screen.dart';
 import 'home_screen.dart';
 
@@ -77,6 +76,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       );
 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -124,7 +124,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: kDeepGreen,
+            selectedItemColor: AppColor.kDeepGreen,
             onTap: _onItemTapped,
           ),
         ),

@@ -38,7 +38,7 @@ class _ResetConfirmPassScreenState extends State<ResetConfirmPassScreen> {
           children: [
             CircularContainer(
               iconData: IconButton(
-                splashColor: kDeepGreen,
+                splashColor: AppColor.kDeepGreen,
                 onPressed: () {
                   Get.back();
                 },
@@ -51,7 +51,7 @@ class _ResetConfirmPassScreenState extends State<ResetConfirmPassScreen> {
             ),
             Expanded(
               child: Container(
-                color: kDeepGreen,
+                color: AppColor.kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),

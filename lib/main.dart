@@ -37,9 +37,9 @@ class MyApp extends StatelessWidget {
       title: 'Hello Pharma',
       theme: ThemeData().copyWith(
         // primaryColor: Color(0xFF28706F),
-        scaffoldBackgroundColor: kDeepGreen,
+        scaffoldBackgroundColor: AppColor.kBackColor,
         appBarTheme:
-            AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
+            const AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
       ),
       defaultTransition: Transition.zoom,
       initialRoute: '/',

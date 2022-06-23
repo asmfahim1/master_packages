@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
           CircularContainer(),
           Expanded(
             child: Container(
-              color: kDeepGreen,
+              color: AppColor.kBackColor,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
