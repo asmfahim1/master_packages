@@ -62,7 +62,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
           children: [
             CircularContainer(
               iconData: IconButton(
-                splashColor: kDeepGreen,
+                splashColor: AppColor.kDeepGreen,
                 onPressed: () {
                   Get.back();
                 },
@@ -75,7 +75,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
             Expanded(
               child: Container(
-                color: kDeepGreen,
+                color: AppColor.kDeepGreen,
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),

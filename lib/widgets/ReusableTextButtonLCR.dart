@@ -17,7 +17,7 @@ class ReusableTextButtonL extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          primary: kDeepGreen,
+          primary: AppColor.kDeepGreen,
           backgroundColor: color,
         ),
         onPressed: onPressed,

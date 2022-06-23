@@ -5,8 +5,6 @@ import 'package:master_package/widgets/ReusableHeadlineText.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 import 'package:master_package/widgets/ReusableTextField.dart';
 
-import 'dashboard_screen.dart';
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -34,7 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Container(
                       height: 200,
                       decoration: const BoxDecoration(
-                          color: kBackColor,
+                          color: AppColor.kBackColor,
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(30.0),
                               bottomRight: Radius.circular(30.0))),
@@ -59,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 padding: const EdgeInsets.all(10.0),
                                 child: IconButton(
                                   onPressed: () {
-                                    Get.to(() => DashboardScreen());
+                                    Get.toNamed('/dashboard');
                                   },
                                   icon: const Icon(
                                     Icons.done_outline,
@@ -99,7 +97,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 270),
                     child: Container(
-                      color: kDeepGreen,
+                      decoration: const BoxDecoration(
+                        color: AppColor.kDeepGreen,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)
+                        )
+                      ),
                       height: 555,
                       child: Padding(
                         padding:
@@ -144,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 40,
                             ),
                             ReusableTextButtonL(
-                              text: Text(
+                              text: const Text(
                                 "Save",
                                 style: TextStyle(
                                   fontSize: 18,
@@ -159,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 20,
                             ),
                             ReusableTextButtonL(
-                              text: Text(
+                              text: const Text(
                                 "Save",
                                 style: TextStyle(
                                   fontSize: 18,
@@ -168,7 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ),
                               onPressed: () {},
-                              color: kBackColor,
+                              color: AppColor.kBackColor,
                             ),
                           ],
                         ),

@@ -22,21 +22,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kSplashColor,
+      backgroundColor: AppColor.kSplashColor,
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Hello Pharmacy",
                 style: TextStyle(
                     fontSize: 44,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Image.asset(
@@ -47,6 +47,5 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
-    ;
   }
 }

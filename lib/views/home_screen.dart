@@ -5,6 +5,7 @@ import 'package:master_package/controller/loading_controller.dart';
 import 'package:master_package/views/pharmacy/pharma_test.dart';
 
 import '../constants/constants.dart';
+import '../widgets/cus_drawer.dart';
 import '../widgets/dashboard_textbutton.dart';
 import 'ambulance/ambulance_main_screen.dart';
 import 'doctors/doc_test.dart';
@@ -18,11 +19,17 @@ class HomeScreen extends StatelessWidget {
 
   HomeScreen({Key? key}) : super(key: key);
 
+
+  //used for active drawer
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const CusDrawer(),
       appBar: AppBar(
-        backgroundColor: kDeepGreen,
+        backgroundColor: AppColor.kDeepGreen,
         // titleSpacing: 80.0,
         title: const Center(
             child: Text(
@@ -31,7 +38,9 @@ class HomeScreen extends StatelessWidget {
         )),
         automaticallyImplyLeading: false,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              scaffoldKey.currentState?.openDrawer();
+            },
             icon: const Icon(
               Icons.menu,
               size: 25,
@@ -47,18 +56,18 @@ class HomeScreen extends StatelessWidget {
               ))
         ],
       ),
-      backgroundColor: kDeepGreen,
+      backgroundColor: AppColor.kDeepGreen,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Obx(() {
             if (loadingController.isLoading.value) {
               return Center(
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  child: CircularProgressIndicator(),
+                  margin: const EdgeInsets.all(10.0),
+                  child: const CircularProgressIndicator(),
                 ),
               );
             } else {
@@ -75,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                     //height: MediaQuery.of(context).size.height * 0.35,
                     autoPlay: true,
                     reverse: false,
-                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayInterval: const Duration(seconds: 3),
                     //pauseAutoPlayOnTouch: Duration(seconds: 10),
                   ),
                   items: [
@@ -97,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                           child: GestureDetector(
                             child: Column(
                               children: [
-                                Text("News for you"),
+                                const Text("News for you"),
                                 Expanded(
                                   child: Center(
                                     child: Image.network(
@@ -120,13 +129,13 @@ class HomeScreen extends StatelessWidget {
               );
             }
           }),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: kBackColor,
+                color: AppColor.kBackColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15.0),
                   topRight: Radius.circular(15.0),
