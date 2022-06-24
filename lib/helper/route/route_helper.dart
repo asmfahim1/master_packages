@@ -19,24 +19,40 @@ import '../../views/user_screen.dart';
 
 class RouteHelper {
   static const String initial = "/";
+  static const String userScreen = "/user";
+  static const String loginScreen = "/login";
+  static const String resetPassScreen = "/forgot_pass";
+  static const String resetConfifrmPassScreen = "/reset_conf";
+  static const String createAccountScreen = "/create_acc";
+  static const String dashboardScreen = "/dashboard";
+  static const String searchScreen = "/search";
+  static const String cartScreen = "/cart";
+  static const String profileScreen = "/profile";
+  static const String drugMainScreen = "/drug";
+  static const String doctorMScreen = "/doctor";
+  static const String pharmacyScreen = "/pharmacy";
+  static const String hospitalMScreen = "/hospital";
+  static const String ambulanceScreen = "/ambulance";
+  static const String nurseCareScreen = "/nurse";
 
   static List<GetPage> routes = [
-    GetPage(name: '/', page: () => SplashScreen()),
-    GetPage(name: '/user', page: () => UserScreen()),
-    GetPage(name: '/login', page: () => LoginScreen()),
-    GetPage(name: '/forgot_pass', page: () => ResetPassScreen()),
-    GetPage(name: '/reset_conf', page: () => ResetConfirmPassScreen()),
-    GetPage(name: '/create_acc', page: () => CreateAccountScreen()),
-    GetPage(name: '/dashboard', page: () => DashboardScreen()),
+    GetPage(name: initial, page: () => SplashScreen()),
+    GetPage(name: userScreen, page: () => UserScreen()),
+    GetPage(name: loginScreen, page: () => LoginScreen()),
+    GetPage(name: resetPassScreen, page: () => ResetPassScreen()),
+    GetPage(
+        name: resetConfifrmPassScreen, page: () => ResetConfirmPassScreen()),
+    GetPage(name: createAccountScreen, page: () => CreateAccountScreen()),
+    GetPage(name: dashboardScreen, page: () => DashboardScreen()),
     // GetPage(name: '/user', page: () => UserScreen()),
-    GetPage(name: '/search', page: () => SearchScreen()),
-    GetPage(name: '/cart', page: () => CartScreen()),
-    GetPage(name: '/cart', page: () => ProfileScreen()),
-    GetPage(name: '/drug', page: () => DrugMainScreen()),
-    GetPage(name: '/doctor', page: () => DoctorMScreen()),
-    GetPage(name: '/pharmacy', page: () => PharmacyScreen()),
-    GetPage(name: '/hospital', page: () => HospitalMScreen()),
-    GetPage(name: '/ambulance', page: () => AmbulanceScreen()),
-    GetPage(name: '/nurse', page: () => NurseCareScreen()),
+    GetPage(name: searchScreen, page: () => SearchScreen()),
+    GetPage(name: cartScreen, page: () => CartScreen()),
+    GetPage(name: profileScreen, page: () => ProfileScreen()),
+    GetPage(name: drugMainScreen, page: () => DrugMainScreen()),
+    GetPage(name: doctorMScreen, page: () => DoctorMScreen()),
+    GetPage(name: pharmacyScreen, page: () => PharmacyScreen()),
+    GetPage(name: hospitalMScreen, page: () => HospitalMScreen()),
+    GetPage(name: ambulanceScreen, page: () => AmbulanceScreen()),
+    GetPage(name: nurseCareScreen, page: () => NurseCareScreen()),
   ];
 }
