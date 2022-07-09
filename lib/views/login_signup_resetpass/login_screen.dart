@@ -1,10 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:http/http.dart' as http;
 import 'package:master_package/constants/constants.dart';
+import 'package:master_package/services/login.dart';
 import 'package:master_package/views/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
@@ -34,43 +32,43 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _fromKey1 = GlobalKey();
 
   // post method a kono model class create korte hoy na.
-  postMethod() async {
-    var response =
-        await http.post(Uri.parse('https://pharmacy.brotherdev.com/login.php'),
-            body: jsonEncode(<String, String>{
-              "email": emailController.text,
-            }));
-    debugPrint(response.body);
-    data = loginModelFromJson(response.body);
-    debugPrint(data.email);
-    debugPrint(passwordController.text.toString());
-    debugPrint(emailController.text.toString());
-    if (response.body == "no data found") {
-      Get.snackbar(
-        'Success',
-        'login nai',
-        backgroundColor: Colors.white,
-      );
-    }
-    if (response.statusCode == 200 &&
-        data.email == emailController.text.toString() &&
-        data.password == passwordController.text.toString()) {
-      Get.snackbar(
-        'Success',
-        'login Successful',
-        backgroundColor: Colors.white,
-      );
-      Get.offAllNamed('/dashboard');
-    } else {
-      Get.snackbar(
-        "Error",
-        "Credential not matched",
-        colorText: Colors.red,
-        backgroundColor: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
-  }
+  // postMethod() async {
+  //   var response =
+  //       await http.post(Uri.parse('https://pharmacy.brotherdev.com/login.php'),
+  //           body: jsonEncode(<String, String>{
+  //             "email": emailController.text,
+  //           }));
+  //   debugPrint(response.body);
+  //   data = loginModelFromJson(response.body);
+  //   debugPrint(data.email);
+  //   debugPrint(passwordController.text.toString());
+  //   debugPrint(emailController.text.toString());
+  //   if (response.body == "no data found") {
+  //     Get.snackbar(
+  //       'Success',
+  //       'login nai',
+  //       backgroundColor: Colors.white,
+  //     );
+  //   }
+  //   if (response.statusCode == 200 &&
+  //       data.email == emailController.text.toString() &&
+  //       data.password == passwordController.text.toString()) {
+  //     Get.snackbar(
+  //       'Success',
+  //       'login Successful',
+  //       backgroundColor: Colors.white,
+  //     );
+  //     Get.offAllNamed('/dashboard');
+  //   } else {
+  //     Get.snackbar(
+  //       "Error",
+  //       "Credential not matched",
+  //       colorText: Colors.red,
+  //       backgroundColor: Colors.white,
+  //       snackPosition: SnackPosition.BOTTOM,
+  //     );
+  //   }
+  // }
 
   late LoginModel data;
 
@@ -248,12 +246,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                         color: Colors.white,
-                        onPressed: () {
+                        onPressed: () async {
                           debugPrint('button pressed1');
                           try {
                             if (_fromKey.currentState!.validate()) {
                               if (_fromKey1.currentState!.validate()) {
-                                postMethod();
+                                int statusCode1 = await LoginServices()
+                                    .postMethod(emailController.text,
+                                        passwordController.text);
+                                if (statusCode1 == 200) {
+                                  Get.offAllNamed('/dashboard');
+                                }
                                 login();
                               }
                             }
