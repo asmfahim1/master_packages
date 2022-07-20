@@ -18,14 +18,14 @@ class LoginModel {
     required this.createdAt,
   });
 
-  dynamic id;
-  dynamic name;
+  int? id;
+  String? name;
   dynamic email;
   dynamic password;
   dynamic createdAt;
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-        id: json["id"],
+        id: json["id"] == null ? null : json["id"],
         name: json["name"],
         email: json["email"],
         password: json["password"],
@@ -33,7 +33,7 @@ class LoginModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "id": id == null ? null : id,
         "name": name,
         "email": email,
         "password": password,
