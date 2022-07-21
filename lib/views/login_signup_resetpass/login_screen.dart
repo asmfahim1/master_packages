@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:master_package/constants/constants.dart';
+import 'package:master_package/controller/loginController.dart';
 import 'package:master_package/services/login.dart';
 import 'package:master_package/views/login_signup_resetpass/reset_pass_screen.dart';
 import 'package:master_package/widgets/ReusableTextButtonLCR.dart';
 
-import '../../models/login/login_model.dart';
 import '../../widgets/CircularWidget.dart';
 import '../../widgets/ReusableHeadlineText.dart';
 import '../../widgets/ReusableTextField.dart';
@@ -31,47 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _fromKey = GlobalKey();
   final GlobalKey<FormState> _fromKey1 = GlobalKey();
 
-  // post method a kono model class create korte hoy na.
-  // postMethod() async {
-  //   var response =
-  //       await http.post(Uri.parse('https://pharmacy.brotherdev.com/login.php'),
-  //           body: jsonEncode(<String, String>{
-  //             "email": emailController.text,
-  //           }));
-  //   debugPrint(response.body);
-  //   data = loginModelFromJson(response.body);
-  //   debugPrint(data.email);
-  //   debugPrint(passwordController.text.toString());
-  //   debugPrint(emailController.text.toString());
-  //   if (response.body == "no data found") {
-  //     Get.snackbar(
-  //       'Success',
-  //       'login nai',
-  //       backgroundColor: Colors.white,
-  //     );
-  //   }
-  //   if (response.statusCode == 200 &&
-  //       data.email == emailController.text.toString() &&
-  //       data.password == passwordController.text.toString()) {
-  //     Get.snackbar(
-  //       'Success',
-  //       'login Successful',
-  //       backgroundColor: Colors.white,
-  //     );
-  //     Get.offAllNamed('/dashboard');
-  //   } else {
-  //     Get.snackbar(
-  //       "Error",
-  //       "Credential not matched",
-  //       colorText: Colors.red,
-  //       backgroundColor: Colors.white,
-  //       snackPosition: SnackPosition.BOTTOM,
-  //     );
-  //   }
-  // }
+  LoginController loginController = Get.put(LoginController());
 
-  late LoginModel data;
-
+  // late LoginModel data;
   // make password visible or not
   bool? obscureText = true;
   void toggle() {
@@ -251,10 +213,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           try {
                             if (_fromKey.currentState!.validate()) {
                               if (_fromKey1.currentState!.validate()) {
-                                int statusCode1 = await LoginServices()
+                                int statusCode = (await LoginServices()
                                     .postMethod(emailController.text,
-                                        passwordController.text);
-                                if (statusCode1 == 200) {
+                                        passwordController.text));
+                                // controller.data.id;
+                                if (statusCode == 200) {
                                   Get.offAllNamed('/dashboard');
                                 }
                                 login();

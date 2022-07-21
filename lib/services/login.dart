@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +7,7 @@ import 'package:http/http.dart' as http;
 import '../models/login/login_model.dart';
 
 class LoginServices {
+  late LoginModel data;
   Future<int> postMethod(String name, String pass) async {
     var response =
         await http.post(Uri.parse('https://pharmacy.brotherdev.com/login.php'),
@@ -16,13 +16,10 @@ class LoginServices {
             }));
     debugPrint(response.body);
     data = loginModelFromJson(response.body);
-    debugPrint(data.email);
-    debugPrint(pass);
-    debugPrint(name);
     if (response.body == "no data found") {
       Get.snackbar(
-        'Success',
-        'login nai',
+        'Unsuccessful',
+        'login unsuccessful',
         backgroundColor: Colors.white,
       );
     }
@@ -47,6 +44,4 @@ class LoginServices {
       return response.statusCode;
     }
   }
-
-  late LoginModel data;
 }
