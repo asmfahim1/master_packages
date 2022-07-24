@@ -15,4 +15,11 @@ class LoginController extends GetxController {
         .postMethod(emailController.text, passwordController.text);
     print(data.id);
   }
+
+  //for toggling eye
+  var obscureText = true.obs;
+  void toggle() {
+    obscureText(false);
+    update();
+  }
 }
