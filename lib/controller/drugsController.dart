@@ -5,8 +5,8 @@ import 'package:master_package/services/medicine_api.dart';
 
 class DrugController extends GetxController {
   //most important line for not getting error
-  var medList = <MedModel>[].obs;
   var isLoading = true.obs;
+  var medList = <MedModel>[].obs;
 
   int get count => DrugsByGeneric.drugs.length;
 
@@ -31,3 +31,8 @@ class DrugController extends GetxController {
     }
   }
 }
+// @override
+// void onClose() {
+//   // TODO: implement onClose
+//   super.onClose();
+// }

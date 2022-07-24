@@ -26,14 +26,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   LoginController loginController = Get.put(LoginController());
 
-  // make password visible or not
-  bool? obscureText = true;
-  void toggle() {
-    setState(() {
-      obscureText = !obscureText!;
-    });
-  }
-
   //Remember me
   bool? isChecked = false;
   late Box box;
@@ -124,35 +116,37 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       ReusablePTitle(title: "Password"),
-                      Form(
-                        key: loginController.fromKey1,
-                        child: ReusableTextfieldPassword(
-                          validator: (value) {
-                            if (value!.isNotEmpty && value.length >= 4) {
-                              return null;
-                            } else if (value.isNotEmpty && value.length < 4) {
-                              return 'invalid password';
-                            } else {
-                              return 'field can not be empty';
-                            }
-                          },
-                          prefixIcon: const Icon(
-                            Icons.vpn_key_outlined,
-                          ),
-                          hintText: 'Enter password',
-                          textEditingController:
-                              loginController.passwordController,
-                          obscureText: obscureText,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              toggle();
+                      Obx(() {
+                        return Form(
+                          key: loginController.fromKey1,
+                          child: ReusableTextfieldPassword(
+                            validator: (value) {
+                              if (value!.isNotEmpty && value.length >= 4) {
+                                return null;
+                              } else if (value.isNotEmpty && value.length < 4) {
+                                return 'invalid password';
+                              } else {
+                                return 'field can not be empty';
+                              }
                             },
-                            icon: Icon(obscureText!
-                                ? Icons.remove_red_eye_outlined
-                                : Icons.visibility_off),
+                            prefixIcon: const Icon(
+                              Icons.vpn_key_outlined,
+                            ),
+                            hintText: 'Enter password',
+                            textEditingController:
+                                loginController.passwordController,
+                            obscureText: loginController.obscureText.value,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                loginController.toggle();
+                              },
+                              icon: Icon(loginController.obscureText.value
+                                  ? Icons.remove_red_eye_outlined
+                                  : Icons.visibility_off),
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                       Row(
                         children: [
                           Theme(
@@ -204,21 +198,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.white,
                         onPressed: () async {
                           debugPrint('button pressed1');
-                          // try {
-                          //   if (_fromKey.currentState!.validate()) {
-                          //     if (_fromKey1.currentState!.validate()) {
-                          //       int statusCode1 = await LoginServices()
-                          //           .postMethod(emailController.text,
-                          //               passwordController.text);
-                          //       if (statusCode1 == 200) {
-                          //         Get.offAllNamed('/dashboard');
-                          //       }
-                          //       login();
-                          //     }
-                          //   }
-                          // } catch (e) {
-                          //   debugPrint(e.toString());
-                          // }
                           loginController.fetchData();
                           login();
                         },

@@ -13,6 +13,13 @@ class LoginController extends GetxController {
   fetchData() async {
     LoginModel data = await LoginServices()
         .postMethod(emailController.text, passwordController.text);
-    data.id;
+    print(data.id);
+  }
+
+  //for toggling eye
+  var obscureText = true.obs;
+  void toggle() {
+    obscureText(false);
+    update();
   }
 }
